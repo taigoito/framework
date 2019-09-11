@@ -2,27 +2,46 @@
 
 #hero {
   @include cover-unit();
-  @include background("dark");
+
+  .copyright {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    display: block;
+    margin: 2rem auto;
+    text-align: center;
+  }
 }
 
 #hero-content {
   @include cover-section();
+  flex-basis: 75%;
+
+  img {
+    display: block;
+    margin: auto;
+  }
 }
 
-#site-header {
-  @include sticky-top();
-  @include background("light");
-}
-
-#page-header {
+#header {
+  @include container();
+  padding-top: 3rem;
+  padding-bottom: 3rem;
+  border-bottom: 1px solid gray(500);
   text-align: center;
 }
 
 #page-title {
-  margin: 3rem 0;
-  font-size: 2rem;
+  margin: 1rem auto;
+  font-size: 1.75rem;
+}
+
+#page-description {
+  margin: 1rem auto;
+  font-size: 1rem;
 }
 
 #cover-image {
-  @include cover-image(none, blur(4px));
+  @include cover-image(url("./images/background.jpg"), none);
 }

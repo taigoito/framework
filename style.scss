@@ -1,9 +1,9 @@
 /*
-Theme Name: Qwel
-Version: 1.0
+Theme Name: Hangakobo
+Version: 2.0
 Author: Taigo Ito
 Author URI: https://qwel.design/
-Description: This is a theme for someone artists or craftsmen. Please customize and use.
+Description: This is a theme for Hanga-Yubinsya.
 */
 
  @charset "utf-8";
@@ -29,13 +29,14 @@ Description: This is a theme for someone artists or craftsmen. Please customize 
  @import "css-framework/sections/front-main";
  @import "css-framework/sections/front-works";
  @import "css-framework/sections/front-about";
- @import "css-framework/sections/front-news";
- @import "css-framework/sections/front-gallery";
- @import "css-framework/sections/front-access";
+ @import "css-framework/sections/front-feature";
+ @import "css-framework/sections/front-shop";
+ @import "css-framework/sections/front-diary";
  @import "css-framework/sections/front-contact";
  @import "css-framework/sections/page-main";
  @import "css-framework/sections/post-main";
  @import "css-framework/sections/works-main";
+ @import "css-framework/sections/feature-main";
  @import "css-framework/sections/pagination";
  @import "css-framework/sections/widget";
  @import "css-framework/sections/footer";

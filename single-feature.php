@@ -11,14 +11,8 @@
             }
           }
           ?>
-          <?php if (!is_singular()) insert_pagination(); ?>
-        </div><!-- .primary -->
-        <?php if (!is_page()) { ?>
-        <div class="secondary-col">
-          <?php dynamic_sidebar('blog-sidebar'); ?>
-        </div><!-- .secondary -->
-        <?php } ?>
+        </div>
       </div>
-    </div><!-- .container -->
+    </div>
   </main><!-- main -->
 <?php get_footer(); ?>

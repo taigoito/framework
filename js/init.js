@@ -18,26 +18,15 @@ scrolling.init();
 const slidebar = new Slidebar();
 slidebar.init();
 
-if (document.body.id === 'index') {
+if (document.body.id === 'index' || document.body.id === 'works' || document.body.id === 'archive-works') {
   // Slider init
   const slider = new Slider({
     hasDraggingHandler: true,
     hasWheelHandler: true,
     hasFade: true,
-    hasCaption: true,
-    autoPlay: 3000
+    hasCaption: true
   });
   slider.init();
-}
-
-if (document.body.id === 'works') {
-  // Works
-  const elem = document.querySelector('.work-gallery');
-  const content = document.querySelector('.work-content');
-  const images = content.querySelectorAll('.wp-block-image');
-  images.forEach((image) => {
-    elem.appendChild(image);
-  });
 }
 
 // Preloader load

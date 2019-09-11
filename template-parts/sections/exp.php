@@ -1,10 +1,10 @@
-    <section id="front-concept" class="front-sec">
-      <h2 class="front-sec-heading">コンセプト</h2>
+    <section id="front-exp" class="front-sec">
+      <h2 class="front-sec-heading">版画教室</h2>
       <div class="container">
         <?php
         $posts = get_posts([
           'posts_per_page' => 1,
-          'include' => 11,
+          'include' => 21,
           'post_type' => 'page'
         ]);
         foreach ($posts as $post) {
@@ -13,4 +13,4 @@
         }
         ?>
       </div><!-- .container -->
-    </section><!-- #concept -->
+    </section><!-- #exp -->

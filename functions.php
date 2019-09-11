@@ -6,7 +6,7 @@ Author URI: https://qwel.design/
 
 // Setup
 
-function qwel_setup()
+function hangakobo_setup()
 {
   // アイキャッチ画像をサポート
   add_theme_support('post-thumbnails');
@@ -22,9 +22,6 @@ function qwel_setup()
 
   // タイトルタグ出力
   add_theme_support('title-tag');
-
-  // カスタムヘッダー
-  add_theme_support('custom-header');
 
   // カスタムロゴ
   add_theme_support('custom-logo');
@@ -48,12 +45,12 @@ function qwel_setup()
   update_option('large_size_w', 648);
   update_option('large_size_h', 648);
 }
-add_action('after_setup_theme', 'qwel_setup');
+add_action('after_setup_theme', 'hangakobo_setup');
 
 
 // Widgets
 
-function qwel_widgets_init()
+function hangakobo_widgets_init()
 {
   register_sidebar([
     'name' => 'Blog Sidebar',
@@ -61,26 +58,26 @@ function qwel_widgets_init()
     'before_widget' => '<aside class="widget">',
     'after_widget' => '</aside>',
     'before_title' => '<h2 class="widget-title">',
-    'after_title' => '</h2>'
+    'after_title' => '</h2>',
   ]);
 }
-add_action('widgets_init', 'qwel_widgets_init');
+add_action('widgets_init', 'hangakobo_widgets_init');
 
 
 // Scripts
 
-function qwel_scripts()
+function hangakobo_scripts()
 {
-  wp_enqueue_style('fonts', 'https://fonts.googleapis.com/css?family=Noto+Sans+JP:300|Noto+Serif+JP:300&display=swap', [], null); 
   wp_enqueue_style('style', get_template_directory_uri() . '/style.css', [], null);
+  wp_enqueue_script('fonts', '//typesquare.com/3/tsst/script/ja/typesquare.js?5d707b2fef1c4640b81d12bbac1e0217&fadein=10', [], null, false); 
 }
-add_action('wp_enqueue_scripts', 'qwel_scripts');
+add_action('wp_enqueue_scripts', 'hangakobo_scripts');
 
 
 // Post
 // デフォルト投稿タイプ呼称・アイコン変更
 
-$post_name = '記事';
+$post_name = '日々の綴り';
 $post_icon = 'dashicons-star-filled';
 
 function change_menulabel()
@@ -112,21 +109,11 @@ $works_slug = 'works';
 $works_name = '作品';
 $works_icon = 'dashicons-hammer';
 
-$works_cat_slug = 'product';
-$works_cat_name = '品名';
-$works_tag_slug = 'motif';
-$works_tag_name = 'モチーフ';
-
 function register_option_works()
 {
   global $works_slug;
   global $works_name;
   global $works_icon;
-
-  global $works_cat_slug;
-  global $works_cat_name;
-  global $works_tag_slug;
-  global $works_tag_name;
 
   register_post_type($works_slug, [
     'labels' => [
@@ -146,17 +133,62 @@ function register_option_works()
     'query_var' => true,
     'show_in_rest' => true
   ]);
+}
+add_action('init', 'register_option_works');
+
+
+// feature
+
+$feature_slug = 'feature';
+$feature_name = '特集';
+$feature_icon = 'dashicons-menu';
+
+$feature_cat_slug = 'feature-tag';
+$feature_cat_name = '特集タグ';
+
+$feature_tag_slug = 'feature-year';
+$feature_tag_name = '特集年';
+
+function register_option_feature()
+{
+  global $feature_slug;
+  global $feature_name;
+  global $feature_icon;
+
+  global $feature_cat_slug;
+  global $feature_cat_name;
+  global $feature_tag_slug;
+  global $feature_tag_name;
+
+  register_post_type($feature_slug, [
+    'labels' => [
+      'name' => $feature_name,
+      'all_items' => $feature_name . '一覧'
+    ],
+    'public' => true,
+    'menu_position' => 7,
+    'menu_icon' => $feature_icon,
+    'supports' => ['title', 'editor', 'excerpt', 'thumbnail'],
+    'has_archive' => true,
+    'rewrite' => [
+      'slug' => $feature_slug,
+      'with_front' => false,
+      'hierarchical' => true
+    ],
+    'query_var' => true,
+    'show_in_rest' => true
+  ]);
 
   register_taxonomy(
-    $works_cat_slug,
-    $works_slug,
+    $feature_cat_slug,
+    $feature_slug,
     [
-      'label' => $works_cat_name,
+      'label' => $feature_cat_name,
       'public' => true,
       'show_admin_column' => true,
       'hierarchical' => true,
       'rewrite' => [
-        'slug' => $works_cat_slug,
+        'slug' => $feature_cat_slug,
         'with_front' => false,
         'hierarchical' => true
       ],
@@ -166,55 +198,79 @@ function register_option_works()
   );
 
   register_taxonomy(
-    $works_tag_slug,
-    $works_slug,
+    $feature_tag_slug,
+    $feature_slug,
     [
-      'label' => $works_tag_name,
+      'label' => $feature_tag_name,
       'public' => true,
       'show_admin_column' => true,
-      'hierarchical' => false,
+      'hierarchical' => true,
       'rewrite' => [
-        'slug' => $works_tag_slug,
+        'slug' => $feature_tag_slug,
         'with_front' => false,
-        'hierarchical' => true
+        'hierarchical' => false
       ],
       'query_var' => true,
       'show_in_rest' => true
     ]
   );
 }
-add_action('init', 'register_option_works');
+add_action('init', 'register_option_feature');
 
-function insert_works_cat()
+function add_feature_fields() {
+	global $feature_name;
+	add_meta_box('feature_setting', $feature_name . '詳細', 'insert_feature_fields', 'feature', 'normal');
+}
+add_action('admin_menu', 'add_feature_fields');
+ 
+function insert_feature_fields() {
+	global $post;
+  echo '背景色：<input type="text" name="background-color" value="' . get_post_meta($post->ID, 'background-color', true) . '" size="50"><br>';
+	echo '文字色：<input type="text" name="color" value="' . get_post_meta($post->ID, 'color', true) . '" size="50"><br>';
+}
+
+function save_feature_fields($postID) {
+	if(!empty($_POST['background-color'])){
+		update_post_meta($postID, 'background-color', $_POST['background-color'] );
+	}else{
+		delete_post_meta($postID, 'background-color');
+	}
+	if(!empty($_POST['border-color'])){
+		update_post_meta($postID, 'border-color', $_POST['border-color'] );
+	}else{
+		delete_post_meta($postID, 'border-color');
+	}
+	if(!empty($_POST['color'])){
+		update_post_meta($postID, 'color', $_POST['color'] );
+	}else{
+		delete_post_meta($postID, 'color');
+	}
+}
+add_action('save_post', 'save_feature_fields');
+
+function insert_feature_cat()
 {
-  global $works_slug;
-  global $works_name;
-  global $works_cat_slug;
-  echo '<ul class="list-' . $works_cat_slug . '">';
+  global $feature_slug;
+  global $feature_cat_slug;
+  global $feature_tag_slug;
+  echo '<ul class="list-' . $feature_cat_slug . '">';
   echo '<li>' .
-    '<a href="' . get_post_type_archive_link($works_slug) . '">' .
-    $works_name . '一覧' . '<span>-all-</span>' .
+    '<a href="' . get_post_type_archive_link($feature_slug) . '">' .
+    get_post_type_object($feature_slug)->label . '一覧' .
     '</a>' .
     '</li>';
-  $terms = get_terms($works_cat_slug, ['orderby' => 'id']);
+  $terms = get_terms($feature_cat_slug, ['orderby' => 'name']);
   foreach ($terms as $term) {
     echo '<li>' .
-      '<a href="' . get_term_link($term->term_id, $works_cat_slug) . '">' .
-      $term->name . '<span>-' . $term->slug . '-</span>' .
+      '<a href="' . get_term_link($term->term_id, $feature_cat_slug) . '">' .
+      $term->name .
       '</a>' .
       '</li>';
   }
-  echo '</ul>';
-}
-
-function insert_works_tag()
-{
-  global $works_tag_slug;
-  echo '<ul class="list-' . $works_tag_slug . '">';
-  $terms = get_terms($works_tag_slug, ['orderby' => 'name']);
-  foreach ($terms as $term) {
+  $terms = get_terms($feature_tag_slug, ['orderby' => 'ID']);
+  foreach (array_reverse($terms) as $term) {
     echo '<li>' .
-      '<a href="' . get_term_link($term->term_id, $works_tag_slug) . '">' .
+      '<a href="' . get_term_link($term->term_id, $feature_tag_slug) . '">' .
       $term->name .
       '</a>' .
       '</li>';
@@ -222,58 +278,59 @@ function insert_works_tag()
   echo '</ul>';
 }
 
-function add_works_fields()
-{
-  global $works_name;
-  add_meta_box('works_setting', $works_name . '詳細', 'insert_works_fields', 'works', 'normal');
-}
-add_action('admin_menu', 'add_works_fields');
 
-function insert_works_fields()
+// Shop
+
+$shop_slug = 'shop';
+$shop_name = '店舗';
+$shop_icon = 'dashicons-cart';
+
+function register_option_shop()
 {
-  global $post;
-  echo '素材：<input type="text" name="material" value="' . get_post_meta($post->ID, 'material', true) . '" size="50"><br>';
-  echo '仕上：<input type="text" name="finish" value="' . get_post_meta($post->ID, 'finish', true) . '" size="50"><br>';
-  echo '寸法：<input type="text" name="size" value="' . get_post_meta($post->ID, 'size', true) . '" size="50"><br>';
-  echo '所在地：<input type="text" name="location" value="' . get_post_meta($post->ID, 'location', true) . '" size="50"><br>';
-  echo '参考納期：<input type="text" name="duration" value="' . get_post_meta($post->ID, 'duration', true) . '" size="50"><br>';
-  echo '参考価格：<input type="text" name="price" value="' . get_post_meta($post->ID, 'price', true) . '" size="50"><br>';
+  global $shop_slug;
+  global $shop_name;
+  global $shop_icon;
+
+  register_post_type($shop_slug, [
+    'labels' => [
+      'name' => $shop_name,
+      'all_items' => $shop_name . '一覧'
+    ],
+    'public' => true,
+    'menu_position' => 8,
+    'menu_icon' => $shop_icon,
+    'supports' => ['title', 'editor', 'excerpt', 'thumbnail'],
+    'has_archive' => true,
+    'rewrite' => [
+      'slug' => $shop_slug,
+      'with_front' => false,
+      'hierarchical' => true
+    ],
+    'query_var' => true,
+    'show_in_rest' => true
+  ]);
+}
+add_action('init', 'register_option_shop');
+
+function add_shop_fields() {
+	global $shop_name;
+	add_meta_box('shop_setting', $shop_name . '詳細', 'insert_shop_fields', 'shop', 'normal');
+}
+add_action('admin_menu', 'add_shop_fields');
+ 
+function insert_shop_fields() {
+	global $post;
+  echo 'URL：<input type="text" name="url" value="' . get_post_meta($post->ID, 'url', true) . '" size="50"><br>';
 }
 
-function save_works_fields($postID)
-{
-  if (!empty($_POST['material'])) {
-    update_post_meta($postID, 'material', $_POST['material']);
-  } else {
-    delete_post_meta($postID, 'material');
-  }
-  if (!empty($_POST['finish'])) {
-    update_post_meta($postID, 'finish', $_POST['finish']);
-  } else {
-    delete_post_meta($postID, 'finish');
-  }
-  if (!empty($_POST['size'])) {
-    update_post_meta($postID, 'size', $_POST['size']);
-  } else {
-    delete_post_meta($postID, 'size');
-  }
-  if (!empty($_POST['location'])) {
-    update_post_meta($postID, 'location', $_POST['location']);
-  } else {
-    delete_post_meta($postID, 'location');
-  }
-  if (!empty($_POST['duration'])) {
-    update_post_meta($postID, 'duration', $_POST['duration']);
-  } else {
-    delete_post_meta($postID, 'duration');
-  }
-  if (!empty($_POST['price'])) {
-    update_post_meta($postID, 'price', $_POST['price']);
-  } else {
-    delete_post_meta($postID, 'price');
-  }
+function save_shop_fields($postID) {
+	if(!empty($_POST['url'])){
+		update_post_meta($postID, 'url', $_POST['url'] );
+	}else{
+		delete_post_meta($postID, 'url');
+	}
 }
-add_action('save_post', 'save_works_fields');
+add_action('save_post', 'save_shop_fields');
 
 
 // Breadcrumb
@@ -299,24 +356,24 @@ function insert_breadcrumb()
       $post_title = $wp_obj->post_title;
 
       // カスタム投稿タイプを判定
-      global $works_slug;
-      global $works_cat_slug;
+      global $feature_slug;
+      global $feature_cat_slug;
       if ($post_type == 'post') {
-        // 「記事」の場合、「カテゴリー」を取得
+        // 「日々の綴り」の場合、「カテゴリー」を取得
         $the_tax = 'category';
-      } else if ($post_type == $works_slug) {
-        // 「作品」の場合、「品名」を取得
-        $the_tax = $works_cat_slug;
+      } else if ($post_type == $feature_slug) {
+        // 「特集」の場合、「特集タグ」を取得
+        $the_tax = $feature_cat_slug;
       } else {
         $the_tax = '';
       }
 
       // 投稿タイプ一覧を表示
       echo '<li>' .
-      '<a href="' . get_post_type_archive_link($post_type) . '">' .
-      get_post_type_object($post_type)->label . '一覧' .
-      '</a>' .
-      '</li>';
+        '<a href="' . get_post_type_archive_link($post_type) . '">' .
+        get_post_type_object($post_type)->label . '一覧' .
+        '</a>' .
+        '</li>';
 
     // タクソノミーが紐づいていれば表示
     if ($the_tax != "") {
@@ -399,17 +456,17 @@ function insert_breadcrumb()
       $term_name = $wp_obj->name;
       $tax_name = $wp_obj->taxonomy;
 
-      // 「カテゴリー」、「タグ」の場合、「記事一覧」を表示
+      // 「カテゴリー」、「タグ」の場合、「日々の綴り」を表示
       if ($tax_name == 'category' || $tax_name == 'tag') {
         $post_type = 'post';
       }
 
-      // 「品名」、「モチーフ」の場合、「作品一覧」を表示
-      global $works_slug;
-      global $works_cat_slug;
-      global $works_tag_slug;
-      if ($tax_name == $works_cat_slug || $tax_name == $works_tag_slug) {
-        $post_type = $works_slug;
+      // 「特集タグ」、「特集年」の場合、「特集一覧」を表示
+      global $feature_slug;
+      global $feature_cat_slug;
+      global $feature_tag_slug;
+      if ($tax_name == $feature_cat_slug || $tax_name == $feature_tag_slug) {
+        $post_type = $feature_slug;
       }
 
       // 投稿タイプ一覧を表示
@@ -512,12 +569,19 @@ function get_my_title()
   // WPオブジェクト取得
   $wp_obj = get_queried_object();
 
-  if (is_single() || is_home() || is_page()) {
-    // 個別投稿ページ・固定ページ
+  if (is_single()) {
+    // 個別投稿ページ
+    $post_type = $wp_obj->post_type;
+    if ($post_type === 'feature') return $wp_obj->post_title;
+    else return get_post_type_object($post_type)->label;
+  } else if (is_home() || is_page()) {
+    // 固定ページ
     return $wp_obj->post_title;
   } else if (is_post_type_archive()) {
     // カスタム投稿アーカイブ
-    return $wp_obj->label . '一覧';
+    $post_type = $wp_obj->name;
+    if ($post_type === 'works') return '木版画ギャラリー';
+    else return $wp_obj->label . '一覧';
   } else if (is_date()) {
     // 日付別
     $year = get_query_var('year');
@@ -539,6 +603,51 @@ function get_my_title()
   } else if (is_404()) {
     // 404ページ
     return '404 Not Found';
+  }
+}
+
+
+// Get my description
+
+function get_my_description()
+{
+  // WPオブジェクト取得
+  $wp_obj = get_queried_object();
+  
+  if (is_single()) {
+    // 個別投稿ページ
+    $post_type = $wp_obj->post_type;
+    if ($post_type === 'post') return 'おさのなおこが綴る日記';
+    else if ($post_type === 'works') return '暮らしの中からひとかけら<br>空想の世界からひとかけら<br>ゆっくりゆっくり生まれた木版画たち';
+    else if ($post_type === 'feature') return $wp_obj->post_excerpt;
+    else if ($post_type === 'shop') return '作品を取り扱っている店舗のご紹介';
+  } else if (is_home() || is_page()) {
+    // 固定ページ
+    return $wp_obj->post_content;
+  } else if (is_post_type_archive()) {
+    // カスタム投稿アーカイブ
+    $post_type = $wp_obj->name;
+    if ($post_type === 'post') return 'おさのなおこが綴る日記';
+    else if ($post_type === 'works') return '暮らしの中からひとかけら<br>空想の世界からひとかけら<br>ゆっくりゆっくり生まれた木版画たち';
+    else if ($post_type === 'feature') return 'これまで手掛けてきた主な制作・イベント情報を特集';
+    else if ($post_type === 'shop') return '作品を取り扱っている店舗のご紹介';
+  } else if (is_date()) {
+    // 日付別
+    return '';
+  } else if (is_author()) {
+    // 投稿アーカイブ
+    return '';
+  } else if (is_archive()) {
+    // タームアーカイブ
+    $term_id = $wp_obj->term_id;
+    $tax_name = $wp_obj->taxonomy;
+    return term_description($term_id, $tax_name);;
+  } else if (is_search()) {
+    // 検索結果ページ
+    return '';
+  } else if (is_404()) {
+    // 404ページ
+    return '';
   }
 }
 
@@ -569,12 +678,12 @@ function get_my_slug()
     if ($tax_name == 'category' || $tax_name == 'tag') {
       return 'archive';
     }
-    // 「品名」、「モチーフ」の場合
-    global $works_slug;
-    global $works_cat_slug;
-    global $works_tag_slug;
-    if ($tax_name == $works_cat_slug || $tax_name == $works_tag_slug) {
-      return 'archive-' . $works_slug;
+    // 「特集タグ」、「特集年」の場合
+    global $feature_slug;
+    global $feature_cat_slug;
+    global $feature_tag_slug;
+    if ($tax_name == $feature_cat_slug || $tax_name == $feature_tag_slug) {
+      return 'archive-' . $feature_slug;
     }
   }
 }
@@ -610,7 +719,7 @@ add_filter('excerpt_length', 'register_excerpt_length', 999);
 
 // Copyright
 
-$copyright = date('Y') . ' QWEL';
+$copyright = '2007 - ' . date('Y') . ' osano naoko';
 
 function copyright()
 {

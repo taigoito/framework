@@ -1,9 +1,7 @@
 // Post main
 
 #post,
-#photo,
-#archive,
-#archive-photo {
+#archive {
   .row {
     justify-content: space-between;
   }
@@ -15,7 +13,12 @@
   .secondary-col {
     @include col("lg", 3);
   }
-  
+}
+
+#post,
+#feature:not(.section),
+#archive,
+#archive-feature {
   .post {
     margin-bottom: 6rem;
   }

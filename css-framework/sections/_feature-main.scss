@@ -1,0 +1,17 @@
+// Feature main
+
+#feature {
+  .primary-col {
+    @include col("lg", 8);
+  }
+}
+
+#archive-feature {
+  .primary-col {
+    @include col("lg", 12);
+
+    .feature:last-child {
+      margin-bottom: 6rem;
+    }
+  }
+}

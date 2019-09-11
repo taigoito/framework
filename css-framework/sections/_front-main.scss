@@ -1,23 +1,26 @@
-// Front - main
+// Index main
 
-.front-sec:not(#front-access) {
-  padding-top: 6rem;
-  padding-bottom: 6rem;
+.front-sec {
+  padding-bottom: 3rem;
   text-align: center;
-
-  &:not(#front-gallery) {
-    &:nth-child(odd) {
-      background-color: gray(850);
-    }
-
-    &:nth-child(even) {
-      background-color: $body-bg;
-    }
-  }
 }
 
 .front-sec-heading {
-  margin-bottom: 6rem;
-  font-size: 1.5rem;
+  width: 95%;
+  margin: 0 auto 3rem;
+  padding-left: .75rem;
+  border-bottom: 1px dotted $body-color;
+  font-weight: 500;
+  font-size: 1.25rem;
+  text-align: left;
+  line-height: 1;
   text-transform: capitalize;
+
+  @media (min-width: breakpoint("md")) {
+    max-width: map-get($container-max-widths, "md");
+  }
+
+  @media (min-width: breakpoint("lg")) {
+    max-width: map-get($container-max-widths, "lg");
+  }
 }

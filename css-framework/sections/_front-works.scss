@@ -1,5 +1,12 @@
 // Front - Works
 
-#front-works .slider-item {
-  padding: 0 3rem;
+#front-works {
+  .slider {
+    margin-top: 4.5rem;
+    margin-bottom: 1.5rem;
+  }
+  
+  .slider-item {
+    padding: 0 4.5rem;
+  }
 }

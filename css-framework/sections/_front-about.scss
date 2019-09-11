@@ -1,22 +1,26 @@
 // Front - About
 
-#front-about {
-  .about {
+#front-concept,
+#front-exp,
+#front-profile {
+  .concept {
+    padding: 1.5rem 1rem;
     align-items: center;
   }
 
   .featured-image,
-  .about-intro {
+  .concept-intro {
     @include col("lg", 6);
     margin-bottom: 2rem;
   }
 
-  .about-intro-text {
+  .concept-intro-text {
     margin-bottom: 2rem;
+    padding: 0 1rem;
     text-align: justify;
   }
 
-  .about-intro-btn {
+  .concept-intro-btn {
     @include button("lg");
   }
 }

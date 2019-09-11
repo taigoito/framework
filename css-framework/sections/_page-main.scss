@@ -2,18 +2,16 @@
 
 .page-sec {
   @include row();
-  margin: 6rem 0;
+  margin: 3rem 0;
   justify-content: space-around;
 
-  .primary-col, .secondary-col {
-    @include col("lg", 6);
-  }
-
   .primary-col {
+    @include col("lg", 6);
     order: 2;
   }
 
   .secondary-col {
+    @include col("lg", 5);
     order: 1;
     text-align: center;
   }
@@ -30,4 +28,3 @@
     }
   }
 }
-

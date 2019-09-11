@@ -14,22 +14,17 @@
   </noscript>
   <script src="<?php echo get_template_directory_uri() . '/js/preloader.js'; ?>"></script>
   <script>
-    const preloader = new Preloader();
+    const preloader = new Preloader({backgroundColor: "#fceec3"});
   </script>
 
-  <header id="<?php echo is_front_page() ? 'hero-wrap' : 'site-header'; ?>">
+  <header id="<?php echo is_front_page() ? 'hero-wrap' : 'header'; ?>">
     <?php
     if (is_front_page()) {
       get_template_part('template-parts/header/hero');
     } else {
-      get_template_part('template-parts/header/navigation');
+      get_template_part('template-parts/header/header');
     }
     ?>
-  </header><!-- #<?php echo is_front_page() ? 'hero-wrap' : 'site-header'; ?> -->
-  <?php
-  if (is_front_page()) {
-    get_template_part('template-parts/header/navigation');
-  } else {
-    get_template_part('template-parts/header/breadcrumb');
-  }
-  ?>
+  </header><!-- #<?php echo is_front_page() ? 'hero-wrap' : 'header'; ?> -->
+  <?php get_template_part('template-parts/header/navigation'); ?>
+  <?php if (!is_front_page()) get_template_part('template-parts/header/breadcrumb'); ?>
