@@ -3,9 +3,9 @@
           <a href="<?php the_permalink(); ?>">
             <?php
             if (has_post_thumbnail()) {
-              the_post_thumbnail('thumbnail');
+              the_post_thumbnail('large');
             } else {
-              no_image();
+              no_image('lg');
             }
             ?>
           </a>
@@ -24,7 +24,7 @@
             </ul>
             <div class="news-intro-text">
               <p>
-                <?php echo mb_substr(get_the_excerpt(), 0, 75); ?> <a href="<?php the_permalink(); ?>">[詳細]</a>
+                <?php echo mb_substr(get_the_excerpt(), 0, 100); ?>
               </p>
             </div>
           </div>

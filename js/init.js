@@ -7,7 +7,8 @@
 
 import Scrolling from './_scrolling.js';
 import Slidebar from './_slidebar.js';
-import Slider from './_slider.js';
+//import Slider from './_slider.js';
+import Sketch from './_sketch.js';
 import renderEvilIcons from './_evil-icons.js';
 
 // Scrolling init
@@ -18,19 +19,25 @@ scrolling.init();
 const slidebar = new Slidebar();
 slidebar.init();
 
-if (document.body.id === 'index') {
+if (document.body.id === 'index' || document.body.id === 'web' ||
+  document.body.id === 'ac' || document.body.id === 'profile') {
   // Slider init
-  const slider = new Slider({
+  /*const slider = new Slider({
     hasDraggingHandler: true,
     hasWheelHandler: true,
     hasFade: true,
     hasCaption: true,
     autoPlay: 3000
   });
-  slider.init();
+  slider.init();*/
+
+  // sketch
+  const elem = document.getElementById('canvas-wrap');
+  const sketch = new Sketch(elem);
+  sketch.init();
 }
 
-if (document.body.id === 'works') {
+/*if (document.body.id === 'works') {
   // Works
   const elem = document.querySelector('.work-gallery');
   const content = document.querySelector('.work-content');
@@ -38,7 +45,7 @@ if (document.body.id === 'works') {
   images.forEach((image) => {
     elem.appendChild(image);
   });
-}
+}*/
 
 // Icons init
 renderEvilIcons();

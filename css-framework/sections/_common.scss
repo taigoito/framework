@@ -29,12 +29,27 @@ h1 {
   font-size: 2rem;
 }
 
-h2 {
+h2:not(.front-sec-heading) {
+  margin-bottom: 1rem;
+  border-bottom: 1px dotted $body-color;
   font-size: 1.5rem;
 }
 
 h3 {
+  position: relative;
+  padding-left: 2rem;
   font-size: 1.25rem;
+
+  &::before {
+    content: '';
+    position: absolute;
+    top: .375rem;
+    left: 0;
+    width: 1.5rem;
+    height: 1.5rem;
+    border-radius: 50%;
+    background: radial-gradient(hsl(0, 85%, 92.5%), hsl(0, 85%, 70%));
+  }
 }
 
 h4 {
@@ -50,8 +65,19 @@ h6 {
 }
 
 h3, h4, h5, h6 {
-  margin-top: 1rem;
-  margin-bottom: .5rem; 
+  margin-top: 2rem;
+  margin-bottom: 1rem; 
+}
+
+.table {
+  margin: 1rem auto;
+  text-align: center;
+
+  td {      
+    &:first-child {
+      text-align: left;
+    }
+  }
 }
 
 // Image clip
@@ -62,6 +88,23 @@ h3, h4, h5, h6 {
 
 .img-clip-inner {
   @include image-clip-inner();
+}
+
+// Table
+
+.table {
+  @include table();
+}
+
+// Buttons
+
+.btn-contact {
+  @include button("lg", "primary-dark");
+  display: block;
+  width: 18rem;
+  margin: 6rem auto;
+  padding-left: 3rem;
+  padding-right: 3rem;
 }
 
 // Accessibility

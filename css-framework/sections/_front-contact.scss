@@ -1,5 +1,9 @@
 // Front - Contact
 
-#front-contact form {
-  @include form();
+#front-contact {
+  @include background("light");
+
+  form {
+    @include form();
+  }
 }

@@ -4,20 +4,9 @@
   padding-top: 6rem;
   padding-bottom: 6rem;
   text-align: center;
-
-  &:not(#front-gallery) {
-    &:nth-child(odd) {
-      background-color: gray(850);
-    }
-
-    &:nth-child(even) {
-      background-color: $body-bg;
-    }
-  }
 }
 
 .front-sec-heading {
-  margin-bottom: 6rem;
+  margin-bottom: 3rem;
   font-size: 1.5rem;
-  text-transform: capitalize;
 }

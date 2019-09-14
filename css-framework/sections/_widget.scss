@@ -13,6 +13,7 @@
   width: 100%;
   padding: .5rem;
   border: 1px solid gray(700);
+  font-size: $small-font-size;
 }
 
 .search-submit {
@@ -20,20 +21,27 @@
   top: .25rem;
   right: .25rem;
   bottom: .25rem;
+  font-size: $small-font-size;
   @include button();
 }
 
 .widget {
   margin-bottom: 3rem;
 
+  .widget-title {
+    border: 0;
+    font-size: 1rem;
+  }
+
   ul {
     @include list-unstyled();
   }
 
   li {
-    line-height: 2.4;
-    text-indent: 1rem;
+    padding: .75rem .25rem;
     border-bottom: 1px solid gray(700);
+    font-size: $small-font-size;
+    line-height: 1;
 
     &:first-child {
       border-top: 1px solid gray(700);

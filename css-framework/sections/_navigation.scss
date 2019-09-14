@@ -2,7 +2,7 @@
 
 #header-navigation {
   @include sticky-top();
-  background: rgba($body-bg, .7);
+  background: linear-gradient(#ffffffff, #ffffff00);
 }
 
 #header-navigation-bar {
@@ -29,13 +29,12 @@
   .navigation-menu li {
     display: inline-block;
     height: 3rem;
-    margin: 0 1rem;
+    margin: 0 1.5rem;
     font-family: $heading-font-family;
     font-weight: $heading-font-weight;
-    font-size: 1.25rem;
+    font-size: 1.125rem;
     line-height: 3rem;
     vertical-align: middle;
-    text-transform: capitalize;
 
     a {
       color: $body-color;
@@ -103,7 +102,6 @@
   .navigation-brand,
   .navigation-menu li {
     vertical-align: middle;
-    text-transform: capitalize;
 
     a {
       color: #ffffff;

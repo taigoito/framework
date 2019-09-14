@@ -2,32 +2,24 @@
 
 .page-sec {
   @include row();
-  margin: 6rem 0;
+  margin-top: 3rem;
+  margin-bottom: 3rem;
   justify-content: space-around;
-
-  .primary-col, .secondary-col {
-    @include col("lg", 6);
-  }
+  align-items: center;
 
   .primary-col {
-    order: 2;
+    @include col("lg", 7);
+    order: 1;
+
+    &:only-child {
+      @include col("lg", 8);
+      order: 1;
+    }
   }
 
   .secondary-col {
-    order: 1;
+    @include col("lg", 5);
+    order: 2;
     text-align: center;
   }
-
-  @media (min-width: breakpoint("lg")) {
-    &:nth-child(even) {
-      .primary-col {
-        order: 1;
-      }
-
-      .secondary-col {
-        order: 2;
-      }
-    }
-  }
 }
-

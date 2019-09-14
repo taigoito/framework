@@ -7,4 +7,5 @@
 
 .breadcrumb {
   @include breadcrumb();
+  @include small();
 }

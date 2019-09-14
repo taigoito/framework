@@ -21,7 +21,8 @@
             </a>
           </div>
           <?php } ?>
-          <?php the_content(); ?>
+          <?php echo mb_substr(get_the_excerpt(), 0, 100); ?>
+          <?php if (is_single()) the_content(); ?>
         </div>
         <aside class="post-navigation">
           <h2 class="navigation-title screen-reader-text">投稿ナビゲーション</h2>

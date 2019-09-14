@@ -8,9 +8,16 @@
   @include cover-section();
 }
 
+#site-title {
+  display: inline-block;
+  max-width: 36rem;
+  margin-top: -3rem;
+  font-size: 3rem;
+  letter-spacing: .08rem;
+}
+
 #site-header {
   @include sticky-top();
-  @include background("light");
 }
 
 #page-header {
@@ -20,9 +27,4 @@
 #page-title {
   margin: 3rem 0;
   font-size: 2rem;
-}
-
-#cover-image { 
-  @include cover-image();
-  @include background("light");
 }

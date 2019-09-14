@@ -23,6 +23,9 @@
         }
       }
       ?>
+      <a class="btn-contact" href="#front-contact">お問い合わせはこちら</a>
     </div><!-- .container -->
   </main><!-- main -->
+  <div id="cover-gradient"></div>
+  <div id="canvas-wrap"></div>
 <?php get_footer(); ?>

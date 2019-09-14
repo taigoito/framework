@@ -25,7 +25,14 @@
   }
 
   .featured-image {
-    text-align: center;
+    img {
+      border: 4px solid gray(850);
+      text-align: center;
+    }
+
+    a:hover img {
+      border: 4px solid theme-color();
+    }
   }
 
   .post-title, .featured-image, .post-content {

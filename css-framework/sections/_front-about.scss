@@ -1,14 +1,28 @@
 // Front - About
 
-#front-about {
+#front-web {
+  @include background('dark');
+}
+
+#front-ac,
+#front-profile {
+  @include background('light');
+}
+
+#front-web,
+#front-ac {
   .about {
     align-items: center;
   }
 
   .featured-image,
   .about-intro {
-    @include col("lg", 6);
+    @include col("lg", 8);
     margin-bottom: 2rem;
+  }
+
+  .featured-image img {
+    max-width: 9rem;
   }
 
   .about-intro-text {
@@ -17,6 +31,35 @@
   }
 
   .about-intro-btn {
-    @include button("lg");
+    @include button("lg", "primary-dark");
+  }
+}
+
+#front-profile {
+  .about {
+    align-items: center;
+  }
+
+  .featured-image {
+    @include col("lg", 4);
+    margin-bottom: 2rem;
+  }
+
+  .about-intro {
+    @include col("lg", 8);
+    margin-bottom: 2rem;
+  }
+
+  .featured-image img {
+    max-width: 9rem;
+  }
+
+  .about-intro-text {
+    margin-bottom: 2rem;
+    text-align: justify;
+  }
+
+  .about-intro-btn {
+    @include button("lg", "primary-dark");
   }
 }

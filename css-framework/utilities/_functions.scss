@@ -17,7 +17,7 @@
   $g: green($color);
   $b: blue($color);
   $yiq: (($r * 299) + ($g * 587) + ($b * 114)) / 1000;
-  @if ($yiq >= 150) {
+  @if ($yiq >= 180) {
     @return gray(150);
   } @else {
     @return #ffffff;
