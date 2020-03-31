@@ -45,8 +45,8 @@
 
     img {
       width: auto;
-      height: 3rem;
-      filter: brightness(100%) grayscale(100%) invert(1);
+      height: 4.5rem;
+      filter: brightness(200%);
     }
   }
   
@@ -74,7 +74,7 @@
   cursor: pointer;
   
   .icon {
-    margin: 0 .5rem;
+    margin: .75rem;
   }
   
   &:hover {

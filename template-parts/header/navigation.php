@@ -7,4 +7,4 @@
     }
     ?>
   </div>
-  <button id="menu-toggler" type="button" data-toggle="slidebar"><span data-icon="ei-navicon" data-size="l"></span></button>
+  <button id="menu-toggler" type="button" data-toggle="slidebar"><span data-icon="ei-navicon" data-size="m"></span></button>

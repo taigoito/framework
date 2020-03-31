@@ -26,10 +26,14 @@
 
 #header {
   @include container();
-  padding-top: 3rem;
+  padding-top: 6rem; // Gap for logo on mobile (Because it always scrolls)
   padding-bottom: 3rem;
   border-bottom: 1px solid gray(500);
   text-align: center;
+
+  @media(min-width: breakpoint("lg")) {
+    padding-top: 4.5rem; // Close the gap on desktop
+  }
 }
 
 #page-title {

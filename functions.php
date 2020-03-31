@@ -25,7 +25,7 @@ function hangakobo_setup()
 
   // カスタムロゴ
   add_theme_support('custom-logo');
-  
+
   // カスタムメニュー
   register_nav_menus([
     'primary' => 'Primary Menu',
@@ -69,7 +69,7 @@ add_action('widgets_init', 'hangakobo_widgets_init');
 function hangakobo_scripts()
 {
   wp_enqueue_style('style', get_template_directory_uri() . '/style.css', [], null);
-  wp_enqueue_script('fonts', '//typesquare.com/3/tsst/script/ja/typesquare.js?5d707b2fef1c4640b81d12bbac1e0217&fadein=10', [], null, false); 
+  wp_enqueue_script('fonts', '//typesquare.com/3/tsst/script/ja/typesquare.js?5d707b2fef1c4640b81d12bbac1e0217&fadein=10', [], null, false);
 }
 add_action('wp_enqueue_scripts', 'hangakobo_scripts');
 
@@ -77,7 +77,7 @@ add_action('wp_enqueue_scripts', 'hangakobo_scripts');
 // Post
 // デフォルト投稿タイプ呼称・アイコン変更
 
-$post_name = '日々の綴り';
+$post_name = '版画ゆうびん';
 $post_icon = 'dashicons-star-filled';
 
 function change_menulabel()
@@ -217,34 +217,37 @@ function register_option_feature()
 }
 add_action('init', 'register_option_feature');
 
-function add_feature_fields() {
-	global $feature_name;
-	add_meta_box('feature_setting', $feature_name . '詳細', 'insert_feature_fields', 'feature', 'normal');
+function add_feature_fields()
+{
+  global $feature_name;
+  add_meta_box('feature_setting', $feature_name . '詳細', 'insert_feature_fields', 'feature', 'normal');
 }
 add_action('admin_menu', 'add_feature_fields');
- 
-function insert_feature_fields() {
-	global $post;
+
+function insert_feature_fields()
+{
+  global $post;
   echo '背景色：<input type="text" name="background-color" value="' . get_post_meta($post->ID, 'background-color', true) . '" size="50"><br>';
-	echo '文字色：<input type="text" name="color" value="' . get_post_meta($post->ID, 'color', true) . '" size="50"><br>';
+  echo '文字色：<input type="text" name="color" value="' . get_post_meta($post->ID, 'color', true) . '" size="50"><br>';
 }
 
-function save_feature_fields($postID) {
-	if(!empty($_POST['background-color'])){
-		update_post_meta($postID, 'background-color', $_POST['background-color'] );
-	}else{
-		delete_post_meta($postID, 'background-color');
-	}
-	if(!empty($_POST['border-color'])){
-		update_post_meta($postID, 'border-color', $_POST['border-color'] );
-	}else{
-		delete_post_meta($postID, 'border-color');
-	}
-	if(!empty($_POST['color'])){
-		update_post_meta($postID, 'color', $_POST['color'] );
-	}else{
-		delete_post_meta($postID, 'color');
-	}
+function save_feature_fields($postID)
+{
+  if (!empty($_POST['background-color'])) {
+    update_post_meta($postID, 'background-color', $_POST['background-color']);
+  } else {
+    delete_post_meta($postID, 'background-color');
+  }
+  if (!empty($_POST['border-color'])) {
+    update_post_meta($postID, 'border-color', $_POST['border-color']);
+  } else {
+    delete_post_meta($postID, 'border-color');
+  }
+  if (!empty($_POST['color'])) {
+    update_post_meta($postID, 'color', $_POST['color']);
+  } else {
+    delete_post_meta($postID, 'color');
+  }
 }
 add_action('save_post', 'save_feature_fields');
 
@@ -312,25 +315,47 @@ function register_option_shop()
 }
 add_action('init', 'register_option_shop');
 
-function add_shop_fields() {
-	global $shop_name;
-	add_meta_box('shop_setting', $shop_name . '詳細', 'insert_shop_fields', 'shop', 'normal');
+function add_shop_fields()
+{
+  global $shop_name;
+  add_meta_box('shop_setting', $shop_name . '詳細', 'insert_shop_fields', 'shop', 'normal');
 }
 add_action('admin_menu', 'add_shop_fields');
- 
-function insert_shop_fields() {
-	global $post;
+
+function insert_shop_fields()
+{
+  global $post;
   echo 'URL：<input type="text" name="url" value="' . get_post_meta($post->ID, 'url', true) . '" size="50"><br>';
 }
 
-function save_shop_fields($postID) {
-	if(!empty($_POST['url'])){
-		update_post_meta($postID, 'url', $_POST['url'] );
-	}else{
-		delete_post_meta($postID, 'url');
-	}
+function save_shop_fields($postID)
+{
+  if (!empty($_POST['url'])) {
+    update_post_meta($postID, 'url', $_POST['url']);
+  } else {
+    delete_post_meta($postID, 'url');
+  }
 }
 add_action('save_post', 'save_shop_fields');
+
+
+// User Photo
+
+function insert_user_profile($bool)
+{
+  global $profileuser;
+  echo '<tr><th><label for="instagrambusinessid">インスタグラムID</label></th><td><input type="text" name="instagrambusinessid" value="' . $profileuser->instagrambusinessid . '" size="20"></td></tr>';
+  echo '<tr><th><label for="accesstoken">アクセストークン</label></th><td><input type="text" name="accesstoken" value="' . $profileuser->accesstoken . '" size="200"></td></tr>';
+  return $bool;
+}
+add_action('show_password_fields', 'insert_user_profile');
+
+function save_user_profile($user_id, $prev_user_data)
+{
+  update_user_meta($user_id, 'instagrambusinessid', $_POST['instagrambusinessid'], $prev_user_data->instagrambusinessid);
+  update_user_meta($user_id, 'accesstoken', $_POST['accesstoken'], $prev_user_data->accesstoken);
+}
+add_action('profile_update', 'save_user_profile', 10, 2);
 
 
 // Breadcrumb
@@ -359,7 +384,7 @@ function insert_breadcrumb()
       global $feature_slug;
       global $feature_cat_slug;
       if ($post_type == 'post') {
-        // 「日々の綴り」の場合、「カテゴリー」を取得
+        // 「版画ゆうびん」の場合、「カテゴリー」を取得
         $the_tax = 'category';
       } else if ($post_type == $feature_slug) {
         // 「特集」の場合、「特集タグ」を取得
@@ -375,8 +400,8 @@ function insert_breadcrumb()
         '</a>' .
         '</li>';
 
-    // タクソノミーが紐づいていれば表示
-    if ($the_tax != "") {
+      // タクソノミーが紐づいていれば表示
+      /*if ($the_tax != "") {
       $terms = get_the_terms($post_id, $the_tax); // 投稿に紐づく全タームを取得
 
       if (!empty($terms)) {
@@ -403,7 +428,7 @@ function insert_breadcrumb()
             '</a>' .
             '</li>';
         }
-      }
+      }*/
 
       // 自身
       echo '<li>' . $post_title . '</li>';
@@ -456,7 +481,7 @@ function insert_breadcrumb()
       $term_name = $wp_obj->name;
       $tax_name = $wp_obj->taxonomy;
 
-      // 「カテゴリー」、「タグ」の場合、「日々の綴り」を表示
+      // 「カテゴリー」、「タグ」の場合、「版画ゆうびん」を表示
       if ($tax_name == 'category' || $tax_name == 'tag') {
         $post_type = 'post';
       }
@@ -613,11 +638,11 @@ function get_my_description()
 {
   // WPオブジェクト取得
   $wp_obj = get_queried_object();
-  
+
   if (is_single()) {
     // 個別投稿ページ
     $post_type = $wp_obj->post_type;
-    if ($post_type === 'post') return 'おさのなおこが綴る日記';
+    if ($post_type === 'post') return 'おさのなおこが綴る越前海岸からの版画の便り';
     else if ($post_type === 'works') return '暮らしの中からひとかけら<br>空想の世界からひとかけら<br>ゆっくりゆっくり生まれた木版画たち';
     else if ($post_type === 'feature') return $wp_obj->post_excerpt;
     else if ($post_type === 'shop') return '作品を取り扱っている店舗のご紹介';
@@ -627,7 +652,7 @@ function get_my_description()
   } else if (is_post_type_archive()) {
     // カスタム投稿アーカイブ
     $post_type = $wp_obj->name;
-    if ($post_type === 'post') return 'おさのなおこが綴る日記';
+    if ($post_type === 'post') return 'おさのなおこが綴る越前海岸からの版画の便り';
     else if ($post_type === 'works') return '暮らしの中からひとかけら<br>空想の世界からひとかけら<br>ゆっくりゆっくり生まれた木版画たち';
     else if ($post_type === 'feature') return 'これまで手掛けてきた主な制作・イベント情報を特集';
     else if ($post_type === 'shop') return '作品を取り扱っている店舗のご紹介';
