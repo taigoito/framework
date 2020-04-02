@@ -2,14 +2,14 @@
 
 @mixin table() {
   width: 100%;
+  line-height: 1.15;
 
   tr {
     border-top: 1px solid gray(700);
   }
 
   th, td {
-    padding: .75rem .25rem;
-    line-height: 1;
+    padding: .625rem 0;
     font-size: $small-font-size;
   }
 }

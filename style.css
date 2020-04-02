@@ -1,6 +1,6 @@
 /*
 Theme Name: Qwel Design
-Version: 1.0
+Version: 1.1
 Author: Taigo Ito
 Author URI: https://qwel.design/
 Description: This is a theme for Qwel Design.
@@ -633,12 +633,18 @@ input, button, select, optgroup, textarea {
 
 #front-news .news-intro-heading {
   display: inline-block;
-  margin: .75rem 0;
+  margin: 0;
   font-family: "Noto Sans JP", sans-serif;
   font-weight: 400;
   font-size: 1.25rem;
   line-height: 1.5rem;
   vertical-align: bottom;
+}
+
+@media (min-width: 576px) {
+  #front-news .news-intro-heading {
+    margin: .75rem 0;
+  }
 }
 
 #front-news .news-intro-terms {
@@ -667,13 +673,22 @@ input, button, select, optgroup, textarea {
           user-select: none;
   cursor: pointer;
   font-size: 87.5%;
-  margin: .5rem 0;
+  margin: 0;
 }
 
 #front-news .news-intro-terms a:hover {
   background-color: rgba(236, 236, 236, 0.7);
   color: #262626;
   text-decoration: none;
+}
+
+@media (min-width: 576px) {
+  #front-news .news-intro-terms {
+    display: inline-block;
+  }
+  #front-news .news-intro-terms a {
+    margin: .5rem 0;
+  }
 }
 
 @media (min-width: 1152px) {
@@ -807,8 +822,8 @@ input, button, select, optgroup, textarea {
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
-  margin-top: 3rem;
-  margin-bottom: 3rem;
+  margin-top: 6rem;
+  margin-bottom: 6rem;
   -ms-flex-pack: distribute;
       justify-content: space-around;
   -webkit-box-align: center;
@@ -1075,6 +1090,7 @@ input, button, select, optgroup, textarea {
 
 #works .work-info {
   width: 100%;
+  line-height: 1.15;
 }
 
 #works .work-info tr {
@@ -1082,8 +1098,7 @@ input, button, select, optgroup, textarea {
 }
 
 #works .work-info th, #works .work-info td {
-  padding: .75rem .25rem;
-  line-height: 1;
+  padding: .625rem 0;
   font-size: 87.5%;
 }
 
@@ -1263,10 +1278,10 @@ input, button, select, optgroup, textarea {
 }
 
 .widget li {
-  padding: .75rem .25rem;
+  padding: .625rem 0;
   border-bottom: 1px solid #b3b3b3;
   font-size: 87.5%;
-  line-height: 1;
+  line-height: 1.15;
 }
 
 .widget li:first-child {
@@ -1374,6 +1389,10 @@ h3, h4, h5, h6 {
   margin-bottom: 1rem;
 }
 
+p {
+  margin-bottom: .5rem;
+}
+
 .table {
   margin: 1rem auto;
   text-align: center;
@@ -1381,6 +1400,23 @@ h3, h4, h5, h6 {
 
 .table td:first-child {
   text-align: left;
+}
+
+blockquote {
+  margin-left: 1rem;
+  padding-left: .75rem;
+  border-left: 0.25rem solid #262626;
+  font-style: italic;
+}
+
+figure {
+  margin: 0;
+  text-align: center;
+}
+
+figcaption {
+  color: #525252;
+  font-size: 87.5%;
 }
 
 .img-clip {
@@ -1395,6 +1431,7 @@ h3, h4, h5, h6 {
 
 .table {
   width: 100%;
+  line-height: 1.15;
 }
 
 .table tr {
@@ -1402,8 +1439,7 @@ h3, h4, h5, h6 {
 }
 
 .table th, .table td {
-  padding: .75rem .25rem;
-  line-height: 1;
+  padding: .625rem 0;
   font-size: 87.5%;
 }
 
@@ -1432,6 +1468,12 @@ h3, h4, h5, h6 {
   background-color: #f14e4e;
   color: #ffffff;
   text-decoration: none;
+}
+
+.wp-block-group,
+.wp-block-image {
+  margin-top: 2rem;
+  margin-bottom: 2rem;
 }
 
 .screen-reader-text {

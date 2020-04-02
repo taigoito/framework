@@ -28,7 +28,7 @@ function qwel_setup()
 
   // カスタムロゴ
   add_theme_support('custom-logo');
-  
+
   // カスタムメニュー
   register_nav_menus([
     'primary' => 'Primary Menu',
@@ -71,7 +71,7 @@ add_action('widgets_init', 'qwel_widgets_init');
 
 function qwel_scripts()
 {
-  wp_enqueue_style('fonts', 'https://fonts.googleapis.com/css?family=Noto+Sans+JP:300,400&display=swap', [], null); 
+  wp_enqueue_style('fonts', 'https://fonts.googleapis.com/css?family=Noto+Sans+JP:300,400&display=swap', [], null);
   wp_enqueue_style('style', get_template_directory_uri() . '/style.css', [], null);
 }
 add_action('wp_enqueue_scripts', 'qwel_scripts');
@@ -240,25 +240,31 @@ function insert_works_fields()
 
 function save_works_fields($postID)
 {
-  if (!empty($_POST['url'])) {
-    update_post_meta($postID, 'url', $_POST['url']);
+  if (defined('DOING_AUTOSAVE') && DOING_AUTOSAVE) {
+    return $postID;
+  } else if (isset($_POST['action']) && $_POST['action'] == 'inline-save') {
+    return $postID;
   } else {
-    delete_post_meta($postID, 'url');
-  }
-  if (!empty($_POST['location'])) {
-    update_post_meta($postID, 'location', $_POST['location']);
-  } else {
-    delete_post_meta($postID, 'location');
-  }
-  if (!empty($_POST['duration'])) {
-    update_post_meta($postID, 'duration', $_POST['duration']);
-  } else {
-    delete_post_meta($postID, 'duration');
-  }
-  if (!empty($_POST['price'])) {
-    update_post_meta($postID, 'price', $_POST['price']);
-  } else {
-    delete_post_meta($postID, 'price');
+    if (!empty($_POST['url'])) {
+      update_post_meta($postID, 'url', $_POST['url']);
+    } else {
+      delete_post_meta($postID, 'url');
+    }
+    if (!empty($_POST['location'])) {
+      update_post_meta($postID, 'location', $_POST['location']);
+    } else {
+      delete_post_meta($postID, 'location');
+    }
+    if (!empty($_POST['duration'])) {
+      update_post_meta($postID, 'duration', $_POST['duration']);
+    } else {
+      delete_post_meta($postID, 'duration');
+    }
+    if (!empty($_POST['price'])) {
+      update_post_meta($postID, 'price', $_POST['price']);
+    } else {
+      delete_post_meta($postID, 'price');
+    }
   }
 }
 add_action('save_post', 'save_works_fields');
@@ -282,7 +288,7 @@ function insert_breadcrumb()
 
     if (is_single()) {
       // 個別投稿ページ
-      $post_id = $wp_obj->ID;
+      $postID = $wp_obj->ID;
       $post_type = $wp_obj->post_type;
       $post_title = $wp_obj->post_title;
 
@@ -292,7 +298,7 @@ function insert_breadcrumb()
       if ($post_type == 'post') {
         // 「記事」の場合、「カテゴリー」を取得
         $the_tax = 'category';
-      /*} else if ($post_type == $works_slug) {
+        /*} else if ($post_type == $works_slug) {
         // 「作品」の場合、「品名」を取得
         $the_tax = $works_cat_slug;*/
       } else {
@@ -301,25 +307,25 @@ function insert_breadcrumb()
 
       // 投稿タイプ一覧を表示
       echo '<li>' .
-      '<a href="' . get_post_type_archive_link($post_type) . '">' .
-      get_post_type_object($post_type)->label . '一覧' .
-      '</a>' .
-      '</li>';
+        '<a href="' . get_post_type_archive_link($post_type) . '">' .
+        get_post_type_object($post_type)->label . '一覧' .
+        '</a>' .
+        '</li>';
 
-    // タクソノミーが紐づいていれば表示
-    if ($the_tax != "") {
-      $terms = get_the_terms($post_id, $the_tax); // 投稿に紐づく全タームを取得
+      // タクソノミーが紐づいていれば表示
+      if ($the_tax != "") {
+        $terms = get_the_terms($postID, $the_tax); // 投稿に紐づく全タームを取得
 
-      if (!empty($terms)) {
-        $term = $terms[0];
+        if (!empty($terms)) {
+          $term = $terms[0];
 
-        // 親タームがあれば表示
-        if ($term->parent > 0) {
-          // 親タームのIDリストを取得
-          $parent_array = array_reverse(get_ancestors($term->term_id, $the_tax));
-          foreach ($parent_array as $parent_id) {
-            $parent_term = get_term($parent_id, $the_tax);
-            echo '<li>' .
+          // 親タームがあれば表示
+          if ($term->parent > 0) {
+            // 親タームのIDリストを取得
+            $parent_array = array_reverse(get_ancestors($term->term_id, $the_tax));
+            foreach ($parent_array as $parent_id) {
+              $parent_term = get_term($parent_id, $the_tax);
+              echo '<li>' .
                 '<a href="' . get_term_link($parent_id, $the_tax) . '">' .
                 $parent_term->name .
                 '</a>' .
@@ -591,7 +597,7 @@ function no_image($size = 'sm')
 
 function register_excerpt_length()
 {
-  return 100;
+  return 64;
 }
 add_filter('excerpt_length', 'register_excerpt_length', 999);
 

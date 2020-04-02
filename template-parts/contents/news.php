@@ -24,7 +24,7 @@
             </ul>
             <div class="news-intro-text">
               <p>
-                <?php echo mb_substr(get_the_excerpt(), 0, 100); ?>
+              <?php the_excerpt(); ?>
               </p>
             </div>
           </div>

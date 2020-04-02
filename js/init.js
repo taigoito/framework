@@ -16,7 +16,9 @@ const scrolling = new Scrolling();
 scrolling.init();
 
 // Slidebar init
-const slidebar = new Slidebar();
+const slidebar = new Slidebar({
+  root: `${location.protocol}//${location.hostname}/qwel/`
+});
 slidebar.init();
 
 if (document.body.id === 'index' || document.body.id === 'web' ||
