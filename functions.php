@@ -330,10 +330,16 @@ function insert_shop_fields()
 
 function save_shop_fields($postID)
 {
-  if (!empty($_POST['url'])) {
-    update_post_meta($postID, 'url', $_POST['url']);
+  if (defined('DOING_AUTOSAVE') && DOING_AUTOSAVE) {
+    return $postID;
+  } else if (isset($_POST['action']) && $_POST['action'] == 'inline-save') {
+    return $postID;
   } else {
-    delete_post_meta($postID, 'url');
+    if (!empty($_POST['url'])) {
+      update_post_meta($postID, 'url', $_POST['url']);
+    } else {
+      delete_post_meta($postID, 'url');
+    }
   }
 }
 add_action('save_post', 'save_shop_fields');
@@ -376,7 +382,7 @@ function insert_breadcrumb()
 
     if (is_single()) {
       // 個別投稿ページ
-      $post_id = $wp_obj->ID;
+      $postID = $wp_obj->ID;
       $post_type = $wp_obj->post_type;
       $post_title = $wp_obj->post_title;
 
@@ -402,7 +408,7 @@ function insert_breadcrumb()
 
       // タクソノミーが紐づいていれば表示
       /*if ($the_tax != "") {
-      $terms = get_the_terms($post_id, $the_tax); // 投稿に紐づく全タームを取得
+      $terms = get_the_terms($postID, $the_tax); // 投稿に紐づく全タームを取得
 
       if (!empty($terms)) {
         $term = $terms[0];
@@ -737,7 +743,7 @@ function no_image($size = 'sm')
 
 function register_excerpt_length()
 {
-  return 100;
+  return 64;
 }
 add_filter('excerpt_length', 'register_excerpt_length', 999);
 

@@ -1,6 +1,6 @@
 /*
 Theme Name: Hangakobo
-Version: 2.0
+Version: 2.1
 Author: Taigo Ito
 Author URI: https://qwel.design/
 Description: This is a theme for Hanga-Yubinsya.
@@ -97,11 +97,6 @@ input, button, select, optgroup, textarea {
   width: 100%;
   height: 100vh;
   min-height: 576px;
-  background-image: none;
-  background-repeat: no-repeat;
-  background-position: center center;
-  background-size: cover;
-  background-attachment: fixed;
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
@@ -785,48 +780,42 @@ input, button, select, optgroup, textarea {
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
-  margin: 3rem 0;
+  margin-top: 6rem;
+  margin-bottom: 6rem;
   -ms-flex-pack: distribute;
       justify-content: space-around;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
 }
 
-.page-sec .primary-col {
+.page-sec .primary-col, .page-sec .secondary-col {
   position: relative;
   width: 100%;
   padding-left: 0.5rem;
   padding-right: 0.5rem;
-  -webkit-box-ordinal-group: 3;
-      -ms-flex-order: 2;
-          order: 2;
 }
 
 @media (min-width: 1024px) {
-  .page-sec .primary-col {
-    -webkit-box-flex: 0;
-        -ms-flex: 0 0 50%;
-            flex: 0 0 50%;
-    max-width: 50%;
-  }
-}
-
-.page-sec .secondary-col {
-  position: relative;
-  width: 100%;
-  padding-left: 0.5rem;
-  padding-right: 0.5rem;
-  -webkit-box-ordinal-group: 2;
-      -ms-flex-order: 1;
-          order: 1;
-  text-align: center;
-}
-
-@media (min-width: 1024px) {
-  .page-sec .secondary-col {
+  .page-sec .primary-col, .page-sec .secondary-col {
     -webkit-box-flex: 0;
         -ms-flex: 0 0 41.66667%;
             flex: 0 0 41.66667%;
     max-width: 41.66667%;
   }
+}
+
+.page-sec .primary-col {
+  -webkit-box-ordinal-group: 3;
+      -ms-flex-order: 2;
+          order: 2;
+}
+
+.page-sec .secondary-col {
+  -webkit-box-ordinal-group: 2;
+      -ms-flex-order: 1;
+          order: 1;
+  text-align: center;
 }
 
 @media (min-width: 1024px) {
@@ -1078,9 +1067,9 @@ input, button, select, optgroup, textarea {
 }
 
 .widget li {
-  line-height: 2.4;
-  text-indent: 1rem;
+  padding: .625rem 0;
   border-bottom: 1px solid #b3b3b3;
+  line-height: 1.15;
 }
 
 .widget li:first-child {
@@ -1173,6 +1162,27 @@ h3, h4, h5, h6 {
   margin-bottom: .5rem;
 }
 
+p {
+  margin-bottom: .5rem;
+}
+
+blockquote {
+  margin-left: 1rem;
+  padding-left: .75rem;
+  border-left: 0.25rem solid #262626;
+  font-style: italic;
+}
+
+figure {
+  margin: 0;
+  text-align: center;
+}
+
+figcaption {
+  color: #525252;
+  font-size: 87.5%;
+}
+
 .img-clip {
   overflow: hidden;
 }
@@ -1199,6 +1209,12 @@ h3, h4, h5, h6 {
 .link-inline:hover {
   border-color: #ff9999;
   text-decoration: none;
+}
+
+.wp-block-group,
+.wp-block-image {
+  margin-top: 2rem;
+  margin-bottom: 2rem;
 }
 
 .screen-reader-text {

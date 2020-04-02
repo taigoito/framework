@@ -1,6 +1,4 @@
-// Common
-
-// Grid
+// Layout
 
 .container {
   @include container();
@@ -54,6 +52,31 @@ h3, h4, h5, h6 {
   margin-bottom: .5rem; 
 }
 
+p {
+  margin-bottom: .5rem;
+}
+
+// Blockquote
+
+blockquote {
+  margin-left: 1rem;
+  padding-left: .75rem;
+  border-left: .25rem solid $body-color;
+  font-style: italic;
+}
+
+// Figure
+
+figure {
+  margin: 0;
+  text-align: center;
+}
+
+figcaption {
+  color: lighten($body-color, 17%);
+  font-size: $small-font-size;
+}
+
 // Image clip
 
 .img-clip {
@@ -82,6 +105,14 @@ h3, h4, h5, h6 {
     border-color: $link-hover-color;
     text-decoration: none;
   }
+}
+
+// Gutenberg
+
+.wp-block-group,
+.wp-block-image {
+  margin-top: 2rem;
+  margin-bottom: 2rem;
 }
 
 // Accessibility

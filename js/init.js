@@ -15,7 +15,9 @@ const scrolling = new Scrolling();
 scrolling.init();
 
 // Slidebar init
-const slidebar = new Slidebar();
+const slidebar = new Slidebar({
+  root: `${location.protocol}//${location.hostname}/hangakobo/`
+});
 slidebar.init();
 
 if (document.body.id === 'index' || document.body.id === 'works' || document.body.id === 'archive-works') {
@@ -28,9 +30,6 @@ if (document.body.id === 'index' || document.body.id === 'works' || document.bod
   });
   slider.init();
 }
-
-// Preloader load
-window.onload = preloader.load;
 
 // Icons init
 renderEvilIcons();
