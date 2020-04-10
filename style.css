@@ -1,6 +1,6 @@
 /*
 Theme Name: Qwel Design
-Version: 1.1
+Version: 1.2
 Author: Taigo Ito
 Author URI: https://qwel.design/
 Description: This is a theme for Qwel Design.
@@ -18,7 +18,7 @@ html {
   -ms-text-size-adjust: 100%;
 }
 
-@media (max-width: 575px) {
+@media (max-width: 599px) {
   html {
     font-size: 16px;
   }
@@ -32,7 +32,7 @@ body {
   font-weight: 300;
   font-size: 1rem;
   text-align: justify;
-  line-height: 1.75;
+  line-height: 1.15;
   letter-spacing: 0;
 }
 
@@ -138,13 +138,13 @@ input, button, select, optgroup, textarea {
   font-size: 2rem;
 }
 
-#header-navigation {
+#header-nav {
   background: -webkit-gradient(linear, left top, left bottom, from(#ffffffff), to(#ffffff00));
   background: linear-gradient(#ffffffff, #ffffff00);
 }
 
 @supports ((position: -webkit-sticky) or (position: sticky)) {
-  #header-navigation {
+  #header-nav {
     position: -webkit-sticky;
     position: sticky;
     top: 0;
@@ -152,7 +152,7 @@ input, button, select, optgroup, textarea {
   }
 }
 
-#header-navigation-bar {
+#header-nav-bar {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -166,14 +166,14 @@ input, button, select, optgroup, textarea {
 }
 
 @media (min-width: 1152px) {
-  #header-navigation-bar {
+  #header-nav-bar {
     -webkit-box-pack: center;
         -ms-flex-pack: center;
             justify-content: center;
   }
 }
 
-#header-navigation-bar .navigation-menu {
+#header-nav-bar .nav-menu {
   display: none;
   margin: 0;
   padding-left: 0;
@@ -181,13 +181,13 @@ input, button, select, optgroup, textarea {
 }
 
 @media (min-width: 1152px) {
-  #header-navigation-bar .navigation-menu {
+  #header-nav-bar .nav-menu {
     display: inline-block;
   }
 }
 
-#header-navigation-bar .navigation-brand,
-#header-navigation-bar .navigation-menu li {
+#header-nav-bar .nav-brand,
+#header-nav-bar .nav-menu li {
   display: inline-block;
   height: 3rem;
   margin: 0 1.5rem;
@@ -198,26 +198,26 @@ input, button, select, optgroup, textarea {
   vertical-align: middle;
 }
 
-#header-navigation-bar .navigation-brand a,
-#header-navigation-bar .navigation-menu li a {
+#header-nav-bar .nav-brand a,
+#header-nav-bar .nav-menu li a {
   color: #262626;
   text-decoration: none;
 }
 
-#header-navigation-bar .navigation-brand a:hover,
-#header-navigation-bar .navigation-menu li a:hover {
+#header-nav-bar .nav-brand a:hover,
+#header-nav-bar .nav-menu li a:hover {
   color: #f47171;
   text-decoration: underline;
 }
 
-#header-navigation-bar .navigation-brand img,
-#header-navigation-bar .navigation-menu li img {
+#header-nav-bar .nav-brand img,
+#header-nav-bar .nav-menu li img {
   width: auto;
   height: 2rem;
   margin: .5rem;
 }
 
-#navigation-toggler {
+#nav-toggler {
   display: inline-block;
   height: 3rem;
   margin: 0 .5rem;
@@ -230,77 +230,77 @@ input, button, select, optgroup, textarea {
   cursor: pointer;
 }
 
-#navigation-toggler:hover {
+#nav-toggler:hover {
   color: #f47171;
 }
 
 @media (min-width: 1152px) {
-  #navigation-toggler {
+  #nav-toggler {
     display: none;
   }
 }
 
-#footer-navigation {
+#footer-nav {
   margin-bottom: 3rem;
 }
 
-#footer-navigation .navigation-brand {
+#footer-nav .nav-brand {
   height: 3rem;
   padding-left: 1rem;
   line-height: 3rem;
 }
 
-#footer-navigation .navigation-brand img {
+#footer-nav .nav-brand img {
   margin-left: -1rem;
 }
 
-#footer-navigation .navigation-menu {
+#footer-nav .nav-menu {
   margin: 0;
   padding-left: 1rem;
   list-style: none;
 }
 
-#footer-navigation .navigation-menu li {
+#footer-nav .nav-menu li {
   height: 2rem;
   line-height: 2rem;
 }
 
-#footer-navigation .navigation-brand,
-#footer-navigation .navigation-menu li {
+#footer-nav .nav-brand,
+#footer-nav .nav-menu li {
   vertical-align: middle;
 }
 
-#footer-navigation .navigation-brand a,
-#footer-navigation .navigation-menu li a {
+#footer-nav .nav-brand a,
+#footer-nav .nav-menu li a {
   color: #ffffff;
 }
 
-#footer-navigation .navigation-brand a:hover,
-#footer-navigation .navigation-menu li a:hover {
+#footer-nav .nav-brand a:hover,
+#footer-nav .nav-menu li a:hover {
   color: #f47171;
 }
 
-#footer-navigation .navigation-brand img,
-#footer-navigation .navigation-menu li img {
+#footer-nav .nav-brand img,
+#footer-nav .nav-menu li img {
   width: auto;
   height: 2rem;
 }
 
 @media (min-width: 1152px) {
-  #footer-navigation #footer-navigation-bar > div,
-  #footer-navigation .navigation-menu {
+  #footer-nav #footer-nav-bar > div,
+  #footer-nav .nav-menu {
     display: inline-block;
     padding: 0;
   }
-  #footer-navigation .navigation-brand,
-  #footer-navigation .navigation-menu li {
+  #footer-nav .nav-brand,
+  #footer-nav .nav-menu li {
     display: inline-block;
     height: 3rem;
     margin: 0 1rem;
     line-height: 3rem;
   }
-  #footer-navigation .navigation-brand img,
-  #footer-navigation .navigation-menu li img {
+  #footer-nav .nav-brand img,
+  #footer-nav .nav-menu li img {
     margin: .5rem;
   }
 }
@@ -315,15 +315,21 @@ input, button, select, optgroup, textarea {
   margin: 2rem auto;
 }
 
-@media (min-width: 768px) {
+@media (min-width: 600px) {
   #breadcrumb {
-    max-width: 40rem;
+    max-width: 540px;
+  }
+}
+
+@media (min-width: 782px) {
+  #breadcrumb {
+    max-width: 720px;
   }
 }
 
 @media (min-width: 1152px) {
   #breadcrumb {
-    max-width: 60rem;
+    max-width: 1080px;
   }
 }
 
@@ -342,10 +348,11 @@ input, button, select, optgroup, textarea {
   content: ">";
 }
 
-@media (min-width: 576px) {
+@media (min-width: 600px) {
   .breadcrumb {
     font-size: 87.5%;
-    line-height: 1.85;
+    line-height: 1.8;
+    letter-spacing: 0.04rem;
   }
 }
 
@@ -428,6 +435,8 @@ input, button, select, optgroup, textarea {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
 }
 
 #front-web .featured-image,
@@ -467,7 +476,7 @@ input, button, select, optgroup, textarea {
 #front-web .about-intro-btn,
 #front-ac .about-intro-btn {
   display: inline-block;
-  padding: 0.375rem 6rem;
+  padding: 0.75rem 6rem;
   border: none;
   background-color: #f47171;
   color: #ffffff;
@@ -539,7 +548,7 @@ input, button, select, optgroup, textarea {
 
 #front-profile .about-intro-btn {
   display: inline-block;
-  padding: 0.375rem 6rem;
+  padding: 0.75rem 6rem;
   border: none;
   background-color: #f47171;
   color: #ffffff;
@@ -586,15 +595,6 @@ input, button, select, optgroup, textarea {
 
 #front-news .featured-image img {
   border: 4px solid #d9d9d9;
-  -o-object-fit: cover;
-     object-fit: cover;
-}
-
-@media (min-width: 1152px) {
-  #front-news .featured-image img {
-    width: 18rem;
-    height: 11.25rem;
-  }
 }
 
 #front-news .featured-image a:hover img {
@@ -617,38 +617,40 @@ input, button, select, optgroup, textarea {
   }
 }
 
-#front-news .news-intro-inner {
+#front-news .news-intro-container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
   height: 100%;
-  margin: 0 auto;
-  padding: 1rem 2rem;
   background-color: rgba(255, 255, 255, 0.7);
   color: #262626;
+}
+
+#front-news .news-intro-inner {
+  padding: .5rem 1.5rem;
   text-align: left;
 }
 
 #front-news .news-intro-date {
-  font-size: 87.5%;
-  line-height: 1.25rem;
+  margin-top: .75rem;
+  margin-bottom: .75rem;
+  line-height: 1;
 }
 
 #front-news .news-intro-heading {
   display: inline-block;
-  margin: 0;
-  font-family: "Noto Sans JP", sans-serif;
-  font-weight: 400;
-  font-size: 1.25rem;
-  line-height: 1.5rem;
+  margin: .5rem 0;
+  font-size: 1.2rem;
+  line-height: 1.25;
   vertical-align: bottom;
 }
 
-@media (min-width: 576px) {
-  #front-news .news-intro-heading {
-    margin: .75rem 0;
-  }
-}
-
 #front-news .news-intro-terms {
-  display: none;
+  display: inline-block;
+  margin-bottom: 0;
   padding-left: 0;
   list-style: none;
   vertical-align: bottom;
@@ -656,11 +658,12 @@ input, button, select, optgroup, textarea {
 
 #front-news .news-intro-terms li {
   display: inline-block;
+  margin-bottom: 0;
 }
 
 #front-news .news-intro-terms a {
   display: inline-block;
-  padding: 0.25rem 1rem;
+  padding: 0.625rem 1rem;
   border: none;
   background-color: rgba(255, 255, 255, 0.7);
   color: #262626;
@@ -672,23 +675,14 @@ input, button, select, optgroup, textarea {
       -ms-user-select: none;
           user-select: none;
   cursor: pointer;
-  font-size: 87.5%;
-  margin: 0;
+  font-size: 1rem;
+  line-height: 1.25;
 }
 
 #front-news .news-intro-terms a:hover {
   background-color: rgba(236, 236, 236, 0.7);
   color: #262626;
   text-decoration: none;
-}
-
-@media (min-width: 576px) {
-  #front-news .news-intro-terms {
-    display: inline-block;
-  }
-  #front-news .news-intro-terms a {
-    margin: .5rem 0;
-  }
 }
 
 @media (min-width: 1152px) {
@@ -699,6 +693,8 @@ input, button, select, optgroup, textarea {
 
 #front-news .news-intro-text {
   display: block;
+  margin-top: .75rem;
+  margin-bottom: .75rem;
   text-align: justify;
 }
 
@@ -736,6 +732,10 @@ input, button, select, optgroup, textarea {
   text-align: left;
 }
 
+#front-contact form p {
+  line-height: inherit;
+}
+
 #front-contact form label {
   display: block;
 }
@@ -743,13 +743,14 @@ input, button, select, optgroup, textarea {
 #front-contact form input[type="text"], #front-contact form input[type="tel"], #front-contact form input[type="url"], #front-contact form input[type="email"], #front-contact form input[type="password"], #front-contact form input[type="file"], #front-contact form select, #front-contact form optgroup, #front-contact form textarea {
   display: block;
   width: 100%;
+  margin-top: .5rem;
   margin-bottom: 1rem;
-  padding-left: 4px;
-  padding-right: 4px;
+  padding-left: 9px;
+  padding-right: 9px;
 }
 
 #front-contact form input[type="text"], #front-contact form input[type="tel"], #front-contact form input[type="url"], #front-contact form input[type="email"], #front-contact form input[type="password"], #front-contact form input[type="file"], #front-contact form select, #front-contact form optgroup {
-  height: calc(1.75rem + 6px);
+  height: 2.8rem;
 }
 
 #front-contact form input[type="file"] {
@@ -757,12 +758,14 @@ input, button, select, optgroup, textarea {
 }
 
 #front-contact form textarea {
+  padding-top: 9px;
+  padding-top: 9px;
   resize: vertical;
 }
 
 #front-contact form [type="button"], #front-contact form [type="reset"], #front-contact form [type="submit"] {
   display: inline-block;
-  padding: 0.375rem 6rem;
+  padding: 0.75rem 6rem;
   border: none;
   background-color: rgba(244, 113, 113, 0.7);
   color: #ffffff;
@@ -949,6 +952,13 @@ input, button, select, optgroup, textarea {
   margin-bottom: 6rem;
 }
 
+#post .post-date,
+#photo .post-date,
+#archive .post-date,
+#archive-photo .post-date {
+  margin-bottom: 1rem;
+}
+
 #post .post-title,
 #photo .post-title,
 #archive .post-title,
@@ -1090,7 +1100,6 @@ input, button, select, optgroup, textarea {
 
 #works .work-info {
   width: 100%;
-  line-height: 1.15;
 }
 
 #works .work-info tr {
@@ -1174,6 +1183,7 @@ input, button, select, optgroup, textarea {
 
 .pagination li {
   display: inline-block;
+  margin-bottom: 0;
   line-height: 1;
 }
 
@@ -1199,7 +1209,7 @@ input, button, select, optgroup, textarea {
 
 .pagination a {
   display: inline-block;
-  padding: 0.25rem 1rem;
+  padding: 0.625rem 1rem;
   border: none;
   background-color: rgba(244, 113, 113, 0.7);
   color: #ffffff;
@@ -1226,6 +1236,7 @@ input, button, select, optgroup, textarea {
 
 .search-form label {
   display: block;
+  line-height: 1.6;
 }
 
 .search-field {
@@ -1243,7 +1254,7 @@ input, button, select, optgroup, textarea {
   bottom: .25rem;
   font-size: 87.5%;
   display: inline-block;
-  padding: 0.25rem 1rem;
+  padding: 0.625rem 1rem;
   border: none;
   background-color: rgba(244, 113, 113, 0.7);
   color: #ffffff;
@@ -1281,7 +1292,6 @@ input, button, select, optgroup, textarea {
   padding: .625rem 0;
   border-bottom: 1px solid #b3b3b3;
   font-size: 87.5%;
-  line-height: 1.15;
 }
 
 .widget li:first-child {
@@ -1309,15 +1319,21 @@ input, button, select, optgroup, textarea {
   padding-right: 0.5rem;
 }
 
-@media (min-width: 768px) {
+@media (min-width: 600px) {
   .container {
-    max-width: 40rem;
+    max-width: 540px;
+  }
+}
+
+@media (min-width: 782px) {
+  .container {
+    max-width: 720px;
   }
 }
 
 @media (min-width: 1152px) {
   .container {
-    max-width: 60rem;
+    max-width: 1080px;
   }
 }
 
@@ -1364,7 +1380,7 @@ h3 {
 h3::before {
   content: '';
   position: absolute;
-  top: .375rem;
+  top: 0;
   left: 0;
   width: 1.5rem;
   height: 1.5rem;
@@ -1390,23 +1406,34 @@ h3, h4, h5, h6 {
 }
 
 p {
+  margin-bottom: 1rem;
+  line-height: 1.6;
+}
+
+ol, ul {
+  margin-bottom: 1rem;
+}
+
+ol li, ul li {
   margin-bottom: .5rem;
-}
-
-.table {
-  margin: 1rem auto;
-  text-align: center;
-}
-
-.table td:first-child {
-  text-align: left;
 }
 
 blockquote {
   margin-left: 1rem;
   padding-left: .75rem;
   border-left: 0.25rem solid #262626;
+}
+
+blockquote p, blockquote cite {
   font-style: italic;
+}
+
+@media (min-width: 600px) {
+  blockquote p, blockquote cite {
+    font-size: 87.5%;
+    line-height: 1.8;
+    letter-spacing: 0.04rem;
+  }
 }
 
 figure {
@@ -1431,7 +1458,8 @@ figcaption {
 
 .table {
   width: 100%;
-  line-height: 1.15;
+  margin: 1rem auto;
+  text-align: center;
 }
 
 .table tr {
@@ -1443,9 +1471,13 @@ figcaption {
   font-size: 87.5%;
 }
 
+.table td:first-child {
+  text-align: left;
+}
+
 .btn-contact {
   display: inline-block;
-  padding: 0.375rem 6rem;
+  padding: 0.75rem 6rem;
   border: none;
   background-color: #f47171;
   color: #ffffff;
@@ -1554,6 +1586,7 @@ figcaption {
   max-width: 18rem;
   height: 31.25vw;
   max-height: 18rem;
+  margin-bottom: 0;
   border: 1px solid #ffffff;
   background-color: #ffffff;
   overflow: hidden;
@@ -1833,6 +1866,7 @@ figcaption {
   -webkit-box-ordinal-group: 1;
       -ms-flex-order: 0;
           order: 0;
+  margin-bottom: 0;
   text-align: center;
   opacity: 1;
   -webkit-transition: opacity 0.15s linear;

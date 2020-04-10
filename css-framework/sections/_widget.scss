@@ -5,6 +5,7 @@
 
   label {
     display: block;
+    line-height: $line-height-base;
   }
 }
 
@@ -41,7 +42,6 @@
     padding: .625rem 0;
     border-bottom: 1px solid gray(700);
     font-size: $small-font-size;
-    line-height: 1.15;
 
     &:first-child {
       border-top: 1px solid gray(700);

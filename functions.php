@@ -41,8 +41,8 @@ function qwel_setup()
   // メディアサイズ指定
   update_option('thumbnail_size_w', 240);
   update_option('thumbnail_size_h', 240);
-  update_option('medium_size_w', 480);
-  update_option('medium_size_h', 480);
+  update_option('medium_size_w', 360);
+  update_option('medium_size_h', 360);
   update_option('medium_large_size_w', 0);
   update_option('medium_large_size_h', 0);
   update_option('large_size_w', 720);
