@@ -1139,6 +1139,7 @@ input, button, select, optgroup, textarea {
 }
 
 .widget li {
+  margin-bottom: 0;
   padding: .625rem 0;
   border-bottom: 1px solid #b3b3b3;
   font-size: 87.5%;
