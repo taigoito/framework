@@ -7,6 +7,6 @@
         }
         ?>
         <div class="slider-item-caption">
-          <?php the_title(); ?>
+          <a href="<?php the_permalink(); ?>"><?php the_title(); ?></a>
         </div>
       </div>
