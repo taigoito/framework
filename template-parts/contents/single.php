@@ -10,7 +10,11 @@
           <?php } ?>
         </header>
         <div class="post-content">
-          <?php if (is_single() && !is_page() && !is_singular('feature') && has_post_thumbnail()) { ?>
+          <?php if (is_singular('post') || is_post_type_archive('post') || is_category() || is_tag() || is_date() || is_author() || is_search()) { ?>
+            <div class="featured-image">
+              <?php the_post_thumbnail('medium'); ?>
+            </div>
+          <?php } else if (is_single() && !is_page() && !is_singular('feature') && has_post_thumbnail()) { ?>
           <div class="featured-image">
             <?php the_post_thumbnail('large'); ?>
           </div>
