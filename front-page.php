@@ -1,7 +1,7 @@
 <?php get_header(); ?>
   <main class="main">
     <?php
-    $array = ['works', 'about', 'news', 'photos', 'access', 'contact'];
+    $array = ['news', 'about', 'project', 'product', 'photos', 'access', 'contact'];
     foreach ($array as $value) {
       get_template_part('parts/sections/' . $value);
     }
