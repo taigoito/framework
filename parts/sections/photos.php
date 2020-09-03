@@ -1,5 +1,5 @@
     <section id="photos" class="photos">
-      <h2 class="photos__heading">photo gallery</h2>
+      <h2 class="photos__heading">フォトギャラリー</h2>
       <ul class="gallery">
         <?php
         $posts = get_posts([

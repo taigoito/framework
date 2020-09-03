@@ -22,14 +22,13 @@
     if (is_front_page()) {
       get_template_part('parts/sections/hero');
     } else {
-      get_template_part('parts/layout/header-nav');
+      get_template_part('parts/layout/site-header');
     }
     ?>
   </header><!-- .<?php echo is_front_page() ? 'hero' : 'site-header'; ?> -->
-  <?php
-  if (is_front_page()) {
-    get_template_part('parts/layout/header-nav');
-  } else {
-    insert_breadcrumb();
-  }
-  ?>
+  <div class="brand-home">
+    <a href="<?php echo home_url('/'); ?>"><img src="<?php echo get_template_directory_uri() . '/images/itadakizen.png'; ?>"></a>
+  </div>
+  <button class="nav-toggler" type="button" data-toggle="slidebar">
+    <span data-icon="ei-navicon" data-size="l"></span>
+  </button>

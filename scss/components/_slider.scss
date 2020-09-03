@@ -71,4 +71,16 @@
   &__next {
     right: 0;
   }
+
+  &__caption {
+    margin-top: 6rem;
+
+    a {
+      color: #ffffff;
+
+      &:hover {
+        color: $link-hover-color;
+      }
+    }
+  }
 }

@@ -2,13 +2,6 @@
 ------------------------------*/
 
 .access {
-  @extend %section;
-  background-color: gray(850);
-
-  &__heading {
-    @extend %section__heading;
-  }
-
   &__map {
     @include embed-responsive();
   }

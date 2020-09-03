@@ -1,7 +1,7 @@
-/* Section About
+/* Section Feature
 ------------------------------*/
 
-.about {
+.feature {
   position: relative;
   height: 100%;
   min-height: 576px;
@@ -9,7 +9,7 @@
   overflow: hidden;
 
   &__cover {
-    @include cover-image(url("./images/main_00.jpg"));
+    @include cover-image(url("./images/main_03_r.jpg"));
     opacity: .7;
   }
 }

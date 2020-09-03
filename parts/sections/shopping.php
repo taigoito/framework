@@ -1,11 +1,12 @@
-    <section id="works" class="works">
-      <h2 class="works__heading">works</h2>
+    <section id="shopping" class="shopping">
+      <h2 class="shopping__heading">自然食品の販売</h2>
+      <p class="shopping__text">ギリシャ産の天日塩やスコットランドの大麦などを取り扱っています。</p>
       <div id="slider" class="slider--size_sm">
         <div class="slider__inner">
           <?php
           $posts = get_posts([
             'posts_per_page' => 10,
-            'post_type' => 'works'
+            'post_type' => 'item'
           ]);
           foreach ($posts as $post) {
             setup_postdata($post);
@@ -17,4 +18,4 @@
         <a class="slider__next" href="#"><span data-icon="ei-chevron-right" data-size="l"></span></a>
       </div><!-- .slider -->
       <div class="slider__caption"></div>
-    </section><!-- .works -->
+    </section><!-- .shopping -->

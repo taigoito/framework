@@ -5,33 +5,39 @@
   @include container();
 }
 
+%__container {
+  @include row();
+  justify-content: center;
+  align-items: center;
+}
+
 .one-col {
   @extend %container;
 
-  %__container {
-    @include row();
-    margin-bottom: 6rem; // Remove it, if not needed
-    justify-content: space-around;
-    align-items: center;
-  }
-
   &__container {
     @extend %__container;
+
+    @media (min-width: breakpoint("lg")) {
+      justify-content: flex-end;
+    }
   }
 
   &__image {
+    @include col("sm", 10);
     @include col("lg", 5);
   }
 
   &__textbox {
-    @include col("lg", 5);
-    margin-top: 2rem;
-    margin-bottom: 2rem;
+    @include col("sm", 10);
+    @include col("lg", 6);
+    padding: 3rem;
+    background: rgba(255, 255, 255, .7);
+    text-align: left;
   }
 
   &__heading {
     margin-bottom: 2rem;
-    font-size: 1.17rem;
+    font-size: 1.5rem;
   }
 
   %__intro {
@@ -40,6 +46,8 @@
 
   &__intro {
     @extend %__intro;
+    font-family: $font-family-serif;
+    font-weight: $font-weight-serif;
     text-align: justify;
 
     &--align_left {
@@ -59,12 +67,16 @@
   }
 
   &__more {
-    display: inline-block;
-    @include button("lg");
+    font-family: $font-family-serif;
+    font-weight: $font-weight-serif;
   }
 
   &__container--order_switched {
     @extend %__container;
+
+    @media (min-width: breakpoint("lg")) {
+      justify-content: flex-start;
+    }
 
     @media (min-width: breakpoint("lg")) {
       .one-col__textbox {

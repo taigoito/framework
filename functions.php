@@ -31,8 +31,7 @@ function qwel_setup()
   
   // カスタムメニュー
   register_nav_menus([
-    'primary' => 'Primary Menu',
-    'secondary' => 'Secondary Menu'
+    'primary' => 'Primary Menu'
   ]);
 
   // 固定ページの抜粋
@@ -71,7 +70,7 @@ add_action('widgets_init', 'qwel_widgets_init');
 
 function qwel_scripts()
 {
-  wp_enqueue_style('fonts', 'https://fonts.googleapis.com/css?family=Noto+Sans+JP:300|Noto+Serif+JP:300&display=swap', [], null); 
+  wp_enqueue_style('fonts', 'https://fonts.googleapis.com/css?family=Noto+Sans+JP:400|Noto+Serif+JP:500&display=swap', [], null); 
   wp_enqueue_style('style', get_template_directory_uri() . '/style.css', [], null);
 }
 add_action('wp_enqueue_scripts', 'qwel_scripts');
@@ -108,25 +107,15 @@ add_action('init', 'change_objectlabel');
 
 // Works
 
-$works_slug = 'works';
-$works_name = '作品';
+$works_slug = 'item';
+$works_name = '商品';
 $works_icon = 'dashicons-hammer';
-
-$works_cat_slug = 'product';
-$works_cat_name = '品名';
-$works_tag_slug = 'motif';
-$works_tag_name = 'モチーフ';
 
 function register_option_works()
 {
   global $works_slug;
   global $works_name;
   global $works_icon;
-
-  global $works_cat_slug;
-  global $works_cat_name;
-  global $works_tag_slug;
-  global $works_tag_name;
 
   register_post_type($works_slug, [
     'labels' => [
@@ -146,81 +135,8 @@ function register_option_works()
     'query_var' => true,
     'show_in_rest' => true
   ]);
-
-  register_taxonomy(
-    $works_cat_slug,
-    $works_slug,
-    [
-      'label' => $works_cat_name,
-      'public' => true,
-      'show_admin_column' => true,
-      'hierarchical' => true,
-      'rewrite' => [
-        'slug' => $works_cat_slug,
-        'with_front' => false,
-        'hierarchical' => true
-      ],
-      'query_var' => true,
-      'show_in_rest' => true
-    ]
-  );
-
-  register_taxonomy(
-    $works_tag_slug,
-    $works_slug,
-    [
-      'label' => $works_tag_name,
-      'public' => true,
-      'show_admin_column' => true,
-      'hierarchical' => false,
-      'rewrite' => [
-        'slug' => $works_tag_slug,
-        'with_front' => false,
-        'hierarchical' => true
-      ],
-      'query_var' => true,
-      'show_in_rest' => true
-    ]
-  );
 }
 add_action('init', 'register_option_works');
-
-function insert_works_cat()
-{
-  global $works_slug;
-  global $works_name;
-  global $works_cat_slug;
-  echo '<ul class="list-' . $works_cat_slug . '">';
-  echo '<li class="list-' . $works_cat_slug . '__item">' .
-    '<a href="' . get_post_type_archive_link($works_slug) . '">' .
-    $works_name . '一覧' . '<span>-all-</span>' .
-    '</a>' .
-    '</li>';
-  $terms = get_terms($works_cat_slug, ['orderby' => 'id']);
-  foreach ($terms as $term) {
-    echo '<li class="list-' . $works_cat_slug . '__item">' .
-      '<a href="' . get_term_link($term->term_id, $works_cat_slug) . '">' .
-      $term->name . '<span>-' . $term->slug . '-</span>' .
-      '</a>' .
-      '</li>';
-  }
-  echo '</ul>';
-}
-
-function insert_works_tag()
-{
-  global $works_tag_slug;
-  echo '<ul class="list-' . $works_tag_slug . '">';
-  $terms = get_terms($works_tag_slug, ['orderby' => 'name']);
-  foreach ($terms as $term) {
-    echo '<li class="list-' . $works_tag_slug . '__item">' .
-      '<a href="' . get_term_link($term->term_id, $works_tag_slug) . '">' .
-      $term->name .
-      '</a>' .
-      '</li>';
-  }
-  echo '</ul>';
-}
 
 function add_works_fields()
 {
@@ -410,14 +326,6 @@ function insert_breadcrumb()
         $post_type = 'post';
       }
 
-      // 「品名」、「モチーフ」の場合、「作品一覧」を表示
-      global $works_slug;
-      global $works_cat_slug;
-      global $works_tag_slug;
-      if ($tax_name == $works_cat_slug || $tax_name == $works_tag_slug) {
-        $post_type = $works_slug;
-      }
-
       // 投稿タイプ一覧を表示
       echo '<li class="breadcrumb__item">' .
         '<a href="' . get_post_type_archive_link($post_type) . '">' .
@@ -576,13 +484,6 @@ function get_my_slug()
     // 「カテゴリー」、「タグ」の場合
     if ($tax_name == 'category' || $tax_name == 'tag') {
       return 'archive';
-    }
-    // 「品名」、「モチーフ」の場合
-    global $works_slug;
-    global $works_cat_slug;
-    global $works_tag_slug;
-    if ($tax_name == $works_cat_slug || $tax_name == $works_tag_slug) {
-      return 'archive-' . $works_slug;
     }
   }
 }

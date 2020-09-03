@@ -9,9 +9,41 @@
   &__content {
     @include cover-section();
   }
-}
 
-.cover-image {
-  @include cover-image();
-  @include background("light");
+  &__textbox {
+    width: 100%;
+    max-width: 36rem;
+    margin: auto;
+    padding: 3rem;
+    background-color: rgba(255, 255, 255, .7);
+    font-family: $font-family-serif;
+    font-weight: $font-weight-serif;
+  }
+
+  &__large-text {
+    margin-bottom: .5rem;
+    font-size: 2rem;
+  }
+
+  &__small-text {
+    display: inline-block;
+    margin-bottom: .5rem;
+    padding-top: .5rem;
+    border-top: 1px solid $body-color;
+    font-size: 1.17rem;
+  }
+
+  &__english-text {
+    margin-top: 1rem;
+  }
+
+  &__booking {
+    display: inline-block;
+    @include button("lg", "primary");
+    font-family: $font-family-sans-serif;
+  }
+
+  &__image {
+    @include cover-image(url("./images/main_01.jpg"));
+  }
 }

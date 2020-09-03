@@ -9,6 +9,7 @@
             ?>
           </div>
           <div class="cols__textbox">
+            <h3 class="cols__heading"><?php the_title(); ?></h3>
             <div class="cols__intro">
               <?php the_excerpt(); ?>
             </div>
