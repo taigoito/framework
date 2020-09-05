@@ -1,0 +1,14 @@
+/* Section Activity
+------------------------------*/
+
+.activity {
+  @extend %section;
+  @include background("dark");
+
+  &__heading {
+    @extend %section__heading;
+    border-bottom-color: theme-color("primary-light");
+    border-bottom-style: dotted;
+    color: theme-color("primary-light");
+  }
+}

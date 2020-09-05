@@ -1,0 +1,60 @@
+/* Component Projects
+------------------------------*/
+
+.projects {
+  @include container();
+
+  &__item {
+    @include row();
+    margin-bottom: 3rem;
+    border: .125prem solid theme-color("primary");
+  }
+
+  &__image {
+    @include col("lg", 6);
+    padding-left: 2px;
+    padding-right: 2px;
+
+    a:hover img {
+      opacity: .7;
+    }
+  }
+
+  &__textbox {
+    @include col("lg", 6);
+    padding-left: 2px;
+    padding-right: 2px;
+  }
+
+  &__textbox-inner {
+    display: flex;
+    align-items: flex-start;
+    height: 100%;
+    border-bottom: .25rem dashed theme-color("primary-light");
+    background-color: #ffffff;
+  }
+
+  &__heading {
+    margin-top: 0;
+    margin-bottom: 1rem;
+    padding: 1rem 3rem;
+    @include background("primary");
+    font-size: 1.5rem;
+  }
+
+  &__intro {
+    padding: 1rem 3rem;
+  }
+
+  &__item:nth-child(odd) {
+    @media (min-width: breakpoint("lg")) {
+      .projects__textbox {
+        order: 1;
+      }
+
+      .projects__image {
+        order: 2;
+      }
+    }
+  }
+}

@@ -1,0 +1,35 @@
+/* Layout Decoration
+------------------------------*/
+
+%decoration {
+  display: inline-block;
+  width: 0;
+  height: 0;
+  border-style: solid;
+  border-color: transparent transparent theme-color("secondary") transparent;
+}
+
+.heading-dec {
+  position: absolute;
+  top: 0;
+  right: 0;
+  margin: .25rem 1rem;
+  @extend %decoration;
+  border-width: 0 1.4rem 2rem 1.4rem;
+
+  &::before, &::after {
+    content: "";
+    position: absolute;
+    top: 1rem;
+    @extend %decoration;
+    border-width: 0 .7rem 1rem .7rem;
+  }
+
+  &::before {
+    left: .7rem;
+  }
+
+  &::after {
+    right: .7rem;
+  }
+}

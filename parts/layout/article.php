@@ -1,17 +1,19 @@
       <article class="article">
+        <?php if (!is_page()) { ?>
         <header class="article__header">
           <?php if (is_singular('post')) { ?>
           <div class="article__date"><?php the_time('Y.m.d'); ?></div>
           <?php } ?>
           <h2 class="article__title"><?php the_title(); ?></h2>
         </header>
+        <?php } ?>
         <div class="article__content">
           <?php if (has_post_thumbnail()) { ?>
           <div class="article__image">
             <?php the_post_thumbnail('large'); ?>
           </div>
           <?php } ?>
-          <?php the_excerpt(); ?>
+          <?php if (!is_page()) the_excerpt(); ?>
           <?php the_content(); ?>
         </div>
         <aside class="aside">

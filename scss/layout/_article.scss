@@ -53,5 +53,20 @@
         margin-bottom: 2rem;
       }
     }
-  }  
+  }
+
+  h2 {
+    padding-left: .5rem;
+    padding-bottom: .25rem;
+    border-left: .5rem solid theme-color("primary-light");
+    border-bottom: 0.25rem solid theme-color("primary-light");
+    border-radius: .25rem;
+    font-size: 1.5rem;
+  }
+
+  h3 {
+    padding-bottom: .125rem;
+    border-bottom: 0.125rem dotted theme-color("light");
+    font-size: 1.17rem;
+  }
 }

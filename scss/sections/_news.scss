@@ -3,7 +3,7 @@
 
 .news {
   @extend %section;
-  background-color: gray(850);
+  background-color: $body-bg;
 
   &__heading {
     @extend %section__heading;

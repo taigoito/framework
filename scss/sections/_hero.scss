@@ -2,16 +2,110 @@
 ------------------------------*/
 
 .hero {
+  @include container();
+  padding-top: 3rem;
+  padding-bottom: 3rem;
+
   &__inner {
-    @include cover-unit();
+    position: relative;
   }
 
-  &__content {
-    @include cover-section();
+  &__large-text {
+    margin-bottom: 2rem;
+    padding-top: 2rem;
+    font-weight: 700;
+    font-size: 2.25rem;
+    line-height: 1.5;
+
+    rt {
+      display: table-cell;
+    }
+
+    @media (min-width: breakpoint("md")) {
+      font-size: 4.5rem;
+    }
+  }
+
+  &__small-text {
+    margin-bottom: 2rem;
+    font-weight: 700;
+    font-size: 1.17rem;
+  }
+
+  &__more {
+    display: inline-block;
+    @include button("lg");
+  }
+
+  &__animate {
+    display: none;
+
+    &.animate {
+      display: inline-block;
+      animation: flip 4s ease-in-out;
+    }
+  }
+
+  &__video-clip {
+    position: absolute;
+    top: 0;
+    right: 0;
+    z-index: -1;
+    width: 72vw; // About 18rem
+    height: 72vw;
+    border-radius: 50%;
+    overflow: hidden;
+
+    @media (min-width: breakpoint("md")) {
+      width: 36rem;
+      height: 36rem;
+    }
+  }
+
+  &__video {
+    position: absolute;
+    top: -.5rem; // Fix
+    left: -28vw;
+    width: 128vw;
+    height: 75vw;
+
+    @media (min-width: breakpoint("md")) {
+      top: 0;
+      left: -14rem;
+      width: 64rem;
+      height: 36rem;
+    }
   }
 }
 
-.cover-image {
-  @include cover-image();
-  @include background("light");
+@keyframes flip {
+  0% {
+    opacity: 0;
+    transform: rotateX(-90deg);
+  }
+
+  17% {
+    opacity: 1;
+    transform: rotateX(30deg);
+  }
+
+  33% {
+    opacity: 1;
+    transform: rotateX(0deg);
+  }
+
+  67% {
+    opacity: 1;
+    transform: rotateX(0deg);
+  }
+
+  83% {
+    opacity: 1;
+    transform: rotateX(30deg);
+  }
+
+  100% {
+    opacity: 0;
+    transform: rotateX(-90deg);
+  }
 }

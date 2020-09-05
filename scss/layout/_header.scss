@@ -2,6 +2,45 @@
 ------------------------------*/
 
 .site-header {
-  @include sticky-top();
-  @include background("light");
+  @include container();
+
+  &__title {
+    @include container();
+    margin-top: 6rem;
+    margin-bottom: 3rem;
+    padding-bottom: .25rem;
+    border-bottom: .25rem solid theme-color("primary");
+    font-weight: 700;
+    font-size: 2rem;
+    letter-spacing: 0.04em;
+    text-transform: capitalize;
+  }
+}
+
+.nav-brand {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 6rem;
+  height: 6rem;
+  margin: .75rem 1.5rem;
+}
+.nav-toggler {
+  position: fixed;
+  top: 0;
+  right: 0;
+  width: 4.5rem;
+  height: 4.5rem;
+  margin: .75rem;
+  padding: 0;
+  border: 0;
+  background-color: transparent;
+  color: $body-color;
+  line-height: 1;
+  outline: 0;
+  cursor: pointer;
+
+  &:hover {
+    color: $link-hover-color;
+  }
 }

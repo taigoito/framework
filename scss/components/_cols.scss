@@ -3,6 +3,7 @@
 
 %container {
   @include container();
+  text-align: center;
 }
 
 .one-col {
@@ -60,7 +61,7 @@
 
   &__more {
     display: inline-block;
-    @include button("lg");
+    @include button("lg", "secondary");
   }
 
   &__container--order_switched {

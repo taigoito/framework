@@ -3,15 +3,8 @@
 
 .info {
   @include container();
-  max-width: 40rem;
-    
-  @media (min-width: breakpoint("lg")) {
-    max-width: 40rem;
-  }
-
-  &__list {
-      @include list-unstyled();
-  }
+  padding: 3rem;
+  border: 6px dashed theme-color("primary-light");
 
   &__item {
     margin-bottom: 1rem;

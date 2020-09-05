@@ -2,14 +2,19 @@
 ------------------------------*/
 
 %section {
-  padding-top: 6rem;
-  padding-bottom: 6rem;
-  text-align: center;
+  padding-top: 3rem;
+  padding-bottom: 3rem;
 }
 
 %section__heading {
+  @include container();
   margin-top: 0;
-  margin-bottom: 6rem;
+  margin-bottom: 3rem;
+  padding-bottom: .25rem;
+  border-bottom: .25rem solid theme-color("primary");
+  font-weight: 700;
+  font-size: 2rem;
+  letter-spacing: 0.04em;
   text-transform: capitalize;
 }
 
@@ -17,7 +22,6 @@
   &__title {
     margin: 3rem 0;
     font-size: 2rem;
-    text-align: center;
   }
 
   &__container {
@@ -35,6 +39,10 @@
     
     @media (min-width: breakpoint("lg")) {
       max-width: 40rem;
+    }
+
+    &--page {
+      @include col("lg", 12);
     }
   }
 

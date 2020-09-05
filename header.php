@@ -22,14 +22,11 @@
     if (is_front_page()) {
       get_template_part('parts/sections/hero');
     } else {
-      get_template_part('parts/layout/header-nav');
+      get_template_part('parts/layout/site-header');
     }
     ?>
   </header><!-- .<?php echo is_front_page() ? 'hero' : 'site-header'; ?> -->
-  <?php
-  if (is_front_page()) {
-    get_template_part('parts/layout/header-nav');
-  } else {
-    insert_breadcrumb();
-  }
-  ?>
+  <div class="nav-brand">
+    <a href="<?php home_url('/'); ?>"><img src="<?php  echo get_template_directory_uri() . '/assets/koshinokuni.png'; ?>" alt="<?php bloginfo('name'); ?>"></a>
+  </div>
+  <button class="nav-toggler" type="button" data-toggle="slidebar"><span data-icon="ei-navicon" data-size="l"></span></button>
