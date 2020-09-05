@@ -14,9 +14,11 @@
           <span class="hero__animate">生業を<ruby><rb>済世</rb><rt>さいせい</rt></ruby></span> する
         </div>
         <div class="hero__small-text"><?php the_excerpt(); ?></div>
-        <a class="hero__more" href="<?php the_permalink(); ?>">私たちについて</a>
+        <div class="hero__more-wrap">
+          <a class="hero__more" href="<?php the_permalink(); ?>">私たちについて</a>
+        </div>
       <?php } ?>
-    <div class="hero__video-clip">
-      <video class="hero__video" autoplay muted loop src="<?php echo get_template_directory_uri() . '/assets/2020060500.mp4' ?>"></video>
-    </div>
+  </div>
+  <div class="hero__video-clip">
+    <video class="hero__video" autoplay muted loop src="<?php echo get_template_directory_uri() . '/assets/2020060500.mp4' ?>"></video>
   </div>

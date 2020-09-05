@@ -696,7 +696,16 @@ button,
 }
 
 .hero__inner {
-  position: relative;
+  padding-left: 3rem;
+  padding-right: 3rem;
+}
+
+@media (min-width: 782px) {
+  .hero__inner {
+    max-width: 40rem;
+    padding-left: 0;
+    padding-right: 0;
+  }
 }
 
 .hero__large-text {
@@ -705,6 +714,19 @@ button,
   font-weight: 700;
   font-size: 2.25rem;
   line-height: 1.5;
+  overflow: hidden;
+}
+
+.hero__large-text span:nth-of-type(1) ruby {
+  color: #187010;
+}
+
+.hero__large-text span:nth-of-type(2) ruby {
+  color: #ff6a00;
+}
+
+.hero__large-text span:nth-of-type(3) ruby {
+  color: #efcf8f;
 }
 
 .hero__large-text rt {
@@ -721,6 +743,10 @@ button,
   margin-bottom: 2rem;
   font-weight: 700;
   font-size: 1.17rem;
+}
+
+.hero__more-wrap {
+  text-align: center;
 }
 
 .hero__more {
@@ -758,11 +784,13 @@ button,
 
 .hero__video-clip {
   position: absolute;
-  top: 0;
+  top: 3rem;
+  left: 0;
   right: 0;
   z-index: -1;
   width: 72vw;
   height: 72vw;
+  margin: auto;
   border-radius: 50%;
   overflow: hidden;
 }
@@ -771,6 +799,12 @@ button,
   .hero__video-clip {
     width: 36rem;
     height: 36rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .hero__video-clip {
+    left: auto;
   }
 }
 

@@ -7,7 +7,14 @@
   padding-bottom: 3rem;
 
   &__inner {
-    position: relative;
+    padding-left: 3rem;
+    padding-right: 3rem;
+
+    @media (min-width: breakpoint("md")) {
+      max-width: 40rem; // Max container width of "md"
+      padding-left: 0;
+      padding-right: 0;
+    }
   }
 
   &__large-text {
@@ -16,6 +23,19 @@
     font-weight: 700;
     font-size: 2.25rem;
     line-height: 1.5;
+    overflow: hidden; // Fix a bug on Safari 
+
+    span:nth-of-type(1) ruby {
+      color: theme-color("secondary");
+    }
+
+    span:nth-of-type(2) ruby {
+      color: theme-color("primary");
+    }
+
+    span:nth-of-type(3) ruby {
+      color: theme-color("primary-light");
+    }
 
     rt {
       display: table-cell;
@@ -30,6 +50,10 @@
     margin-bottom: 2rem;
     font-weight: 700;
     font-size: 1.17rem;
+  }
+
+  &__more-wrap {
+    text-align: center;
   }
 
   &__more {
@@ -48,17 +72,23 @@
 
   &__video-clip {
     position: absolute;
-    top: 0;
+    top: 3rem; // Container margin
+    left: 0;
     right: 0;
     z-index: -1;
     width: 72vw; // About 18rem
     height: 72vw;
+    margin: auto; // Position centered
     border-radius: 50%;
     overflow: hidden;
 
     @media (min-width: breakpoint("md")) {
       width: 36rem;
       height: 36rem;
+    }
+
+    @media (min-width: breakpoint("lg")) {
+      left: auto;
     }
   }
 
