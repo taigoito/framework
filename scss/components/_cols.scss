@@ -22,12 +22,20 @@
 
   &__image {
     @include col("lg", 5);
+
+    @media(min-width: breakpoint("lg")) {
+      order: 2;
+    }
   }
 
   &__textbox {
     @include col("lg", 5);
     margin-top: 2rem;
     margin-bottom: 2rem;
+
+    @media(min-width: breakpoint("lg")) {
+      order: 1;
+    }
   }
 
   &__heading {

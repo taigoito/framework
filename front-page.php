@@ -7,4 +7,5 @@
     }
     ?>
   </main><!-- .main -->
+  <div class="cover-image"></div>
 <?php get_footer(); ?>

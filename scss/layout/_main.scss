@@ -82,3 +82,8 @@
     }
   }  
 }
+
+.cover-image {
+  @include cover-image(url("./assets/cover_forest.jpg"));
+  z-index: -10;
+}

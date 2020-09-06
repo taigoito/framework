@@ -3,7 +3,8 @@
 
 .activity {
   @extend %section;
-  @include background("dark");
+  background-color: rgba(63, 63, 63, .85);
+  color: #ffffff;
 
   &__heading {
     @extend %section__heading;

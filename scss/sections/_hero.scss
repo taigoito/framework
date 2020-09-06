@@ -34,7 +34,7 @@
     }
 
     span:nth-of-type(3) ruby {
-      color: theme-color("primary-light");
+      color: adjust-hue(theme-color("primary"), 180deg);
     }
 
     rt {
@@ -79,6 +79,7 @@
     width: 72vw; // About 18rem
     height: 72vw;
     margin: auto; // Position centered
+    border: .5rem solid #ffffff;
     border-radius: 50%;
     overflow: hidden;
 

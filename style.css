@@ -484,6 +484,24 @@ button,
           order: 3;
 }
 
+.cover-image {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: -1;
+  width: 100%;
+  height: 100vh;
+  min-height: 576px;
+  background-image: url("./assets/cover_forest.jpg");
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: cover;
+  background-attachment: scroll;
+  -webkit-filter: none;
+          filter: none;
+  z-index: -10;
+}
+
 /* Layout Article
 ------------------------------*/
 .article {
@@ -726,7 +744,7 @@ button,
 }
 
 .hero__large-text span:nth-of-type(3) ruby {
-  color: #efcf8f;
+  color: #0095ff;
 }
 
 .hero__large-text rt {
@@ -791,6 +809,7 @@ button,
   width: 72vw;
   height: 72vw;
   margin: auto;
+  border: .5rem solid #ffffff;
   border-radius: 50%;
   overflow: hidden;
 }
@@ -900,7 +919,7 @@ button,
 /* Section Activity
 ------------------------------*/
 .activity {
-  background-color: #262626;
+  background-color: rgba(63, 63, 63, 0.85);
   color: #ffffff;
 }
 
@@ -1354,6 +1373,14 @@ button,
   }
 }
 
+@media (min-width: 1024px) {
+  .one-col__image {
+    -webkit-box-ordinal-group: 3;
+        -ms-flex-order: 2;
+            order: 2;
+  }
+}
+
 .one-col__textbox {
   position: relative;
   width: 100%;
@@ -1369,6 +1396,14 @@ button,
         -ms-flex: 0 0 41.66667%;
             flex: 0 0 41.66667%;
     max-width: 41.66667%;
+  }
+}
+
+@media (min-width: 1024px) {
+  .one-col__textbox {
+    -webkit-box-ordinal-group: 2;
+        -ms-flex-order: 1;
+            order: 1;
   }
 }
 
@@ -1998,7 +2033,7 @@ button,
 
 .pagination__item--active {
   padding: 1rem;
-  background-color: #cc5500;
+  background-color: #603a20;
   color: #ffffff;
 }
 
