@@ -8,6 +8,10 @@
   &__heading {
     @extend %section__heading;
   }
+
+  &__heading-inner {
+    @extend %section__heading-inner;
+  }
 }
 
 .members {

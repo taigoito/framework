@@ -94,7 +94,7 @@ a:focus {
 }
 
 a:hover {
-  color: #ff6a00;
+  color: #ef6d10;
   text-decoration: underline;
 }
 
@@ -214,7 +214,7 @@ button,
   margin-top: 6rem;
   margin-bottom: 3rem;
   padding-bottom: .25rem;
-  border-bottom: 0.25rem solid #ff6a00;
+  border-bottom: 0.25rem solid #ef6d10;
   font-weight: 700;
   font-size: 2rem;
   letter-spacing: 0.04em;
@@ -265,7 +265,7 @@ button,
 }
 
 .nav-toggler:hover {
-  color: #ff6a00;
+  color: #ef6d10;
 }
 
 /* Layout Main
@@ -284,12 +284,6 @@ button,
   padding-right: 0.5rem;
   margin-top: 0;
   margin-bottom: 3rem;
-  padding-bottom: .25rem;
-  border-bottom: 0.25rem solid #ff6a00;
-  font-weight: 700;
-  font-size: 2rem;
-  letter-spacing: 0.04em;
-  text-transform: capitalize;
 }
 
 @media (min-width: 600px) {
@@ -308,6 +302,16 @@ button,
   .project__heading, .activity__heading, .news__heading, .team__heading, .access__heading, .contact__heading {
     max-width: 960px;
   }
+}
+
+.project__heading-inner, .activity__heading-inner, .news__heading-inner, .team__heading-inner, .access__heading-inner, .contact__heading-inner {
+  position: relative;
+  padding-bottom: .25rem;
+  border-bottom: 0.25rem solid #ef6d10;
+  font-weight: 700;
+  font-size: 2rem;
+  letter-spacing: 0.04em;
+  text-transform: capitalize;
 }
 
 .main__title {
@@ -655,7 +659,7 @@ button,
 }
 
 .footer-nav-brand a:hover, .footer-nav-menu .menu-item a:hover {
-  color: #ff6a00;
+  color: #ef6d10;
 }
 
 @media (min-width: 1024px) {
@@ -740,11 +744,11 @@ button,
 }
 
 .hero__large-text span:nth-of-type(2) ruby {
-  color: #ff6a00;
+  color: #ef6d10;
 }
 
 .hero__large-text span:nth-of-type(3) ruby {
-  color: #0095ff;
+  color: #1092ef;
 }
 
 .hero__large-text rt {
@@ -772,7 +776,7 @@ button,
   margin: auto;
   padding: 0.75rem 6rem;
   border: none;
-  background-color: #ff6a00;
+  background-color: #ef6d10;
   color: #ffffff;
   text-decoration: none;
   text-align: center;
@@ -785,7 +789,7 @@ button,
 }
 
 .hero__more:hover {
-  background-color: #d95a00;
+  background-color: #cb5d0e;
   color: #ffffff;
   text-decoration: none;
 }
@@ -923,7 +927,7 @@ button,
   color: #ffffff;
 }
 
-.activity__heading {
+.activity__heading-inner {
   border-bottom-color: #efcf8f;
   border-bottom-style: dotted;
   color: #efcf8f;
@@ -1118,7 +1122,7 @@ button,
   margin: auto;
   padding: 0.75rem 6rem;
   border: none;
-  background-color: #ff6a00;
+  background-color: #ef6d10;
   color: #ffffff;
   text-decoration: none;
   text-align: center;
@@ -1132,7 +1136,7 @@ button,
 }
 
 .contact__form [type="button"]:hover, .contact__form [type="reset"]:hover, .contact__form [type="submit"]:hover {
-  background-color: #d95a00;
+  background-color: #cb5d0e;
   color: #ffffff;
   text-decoration: none;
 }
@@ -1582,7 +1586,7 @@ button,
   margin: auto;
   padding: 0.75rem 6rem;
   border: none;
-  background-color: #ff6a00;
+  background-color: #ef6d10;
   color: #ffffff;
   text-decoration: none;
   text-align: center;
@@ -1595,7 +1599,7 @@ button,
 }
 
 .cols__more:hover {
-  background-color: #d95a00;
+  background-color: #cb5d0e;
   color: #ffffff;
   text-decoration: none;
 }
@@ -1653,8 +1657,6 @@ button,
   margin-right: auto;
   padding-left: 0.5rem;
   padding-right: 0.5rem;
-  padding: 3rem;
-  border: 6px dashed #efcf8f;
 }
 
 @media (min-width: 600px) {
@@ -1673,6 +1675,11 @@ button,
   .info {
     max-width: 960px;
   }
+}
+
+.info__list {
+  padding: 3rem;
+  border: 6px dashed #efcf8f;
 }
 
 .info__item {
@@ -1874,7 +1881,7 @@ button,
   margin-left: -0.5rem;
   margin-right: -0.5rem;
   margin-bottom: 3rem;
-  border: 0.125prem solid #ff6a00;
+  border: 0.125prem solid #ef6d10;
 }
 
 .projects__image {
@@ -1882,8 +1889,8 @@ button,
   width: 100%;
   padding-left: 0.5rem;
   padding-right: 0.5rem;
-  padding-left: 2px;
-  padding-right: 2px;
+  padding-left: .5rem;
+  padding-right: .5rem;
 }
 
 @media (min-width: 1024px) {
@@ -1892,6 +1899,13 @@ button,
         -ms-flex: 0 0 50%;
             flex: 0 0 50%;
     max-width: 50%;
+  }
+}
+
+@media (min-width: breakpint("lg")) {
+  .projects__image {
+    padding-left: 2px;
+    padding-right: 2px;
   }
 }
 
@@ -1904,8 +1918,8 @@ button,
   width: 100%;
   padding-left: 0.5rem;
   padding-right: 0.5rem;
-  padding-left: 2px;
-  padding-right: 2px;
+  padding-left: .5rem;
+  padding-right: .5rem;
 }
 
 @media (min-width: 1024px) {
@@ -1914,6 +1928,13 @@ button,
         -ms-flex: 0 0 50%;
             flex: 0 0 50%;
     max-width: 50%;
+  }
+}
+
+@media (min-width: breakpint("lg")) {
+  .projects__textbox {
+    padding-left: 2px;
+    padding-right: 2px;
   }
 }
 
@@ -1933,7 +1954,7 @@ button,
   margin-top: 0;
   margin-bottom: 1rem;
   padding: 1rem 3rem;
-  background-color: #ff6a00;
+  background-color: #ef6d10;
   color: #ffffff;
   font-size: 1.5rem;
 }
@@ -2039,7 +2060,7 @@ button,
 
 .pagination__item--joint {
   padding: 1rem;
-  background-color: #ff6a00;
+  background-color: #ef6d10;
   color: #ffffff;
 }
 
@@ -2048,7 +2069,7 @@ button,
   margin: auto;
   padding: 0.625rem 1.25rem;
   border: none;
-  background-color: #ff6a00;
+  background-color: #ef6d10;
   color: #ffffff;
   text-decoration: none;
   text-align: center;
@@ -2062,7 +2083,7 @@ button,
 }
 
 .pagination a:hover {
-  background-color: #d95a00;
+  background-color: #cb5d0e;
   color: #ffffff;
   text-decoration: none;
 }
@@ -2204,7 +2225,7 @@ button,
 }
 
 .slidebar a:hover {
-  color: #ff6a00;
+  color: #ef6d10;
   text-decoration: underline;
 }
 
@@ -2271,7 +2292,7 @@ button,
 }
 
 .slidebar__close:hover {
-  color: #ff6a00;
+  color: #ef6d10;
 }
 
 .slidebar__close.collapse {
@@ -2362,7 +2383,7 @@ button,
 }
 
 .slider__prev:hover, .slider__next:hover {
-  color: #ff6a00;
+  color: #ef6d10;
 }
 
 .slider__prev {
@@ -2454,7 +2475,7 @@ button,
   margin: auto;
   padding: 0.625rem 1.25rem;
   border: none;
-  background-color: #ff6a00;
+  background-color: #ef6d10;
   color: #ffffff;
   text-decoration: none;
   text-align: center;
@@ -2467,7 +2488,7 @@ button,
 }
 
 .search-submit:hover {
-  background-color: #d95a00;
+  background-color: #cb5d0e;
   color: #ffffff;
   text-decoration: none;
 }

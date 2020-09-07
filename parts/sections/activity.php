@@ -1,5 +1,7 @@
     <section id="activity" class="activity">
-      <h2 class="activity__heading">activity<span class="heading-dec"></span></h2>
+      <h2 class="activity__heading">
+        <div class="activity__heading-inner">activity<span class="heading-dec"></span></div>
+      </h2>
       <div class="one-col">
         <?php
         $posts = get_posts([

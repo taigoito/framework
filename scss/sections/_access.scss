@@ -9,6 +9,10 @@
     @extend %section__heading;
   }
 
+  &__heading-inner {
+    @extend %section__heading-inner;
+  }
+
   &__map {
     @include embed-responsive();
   }

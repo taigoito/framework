@@ -12,8 +12,13 @@
 
   &__image {
     @include col("lg", 6);
-    padding-left: 2px;
-    padding-right: 2px;
+    padding-left: .5rem;
+    padding-right: .5rem;
+
+    @media (min-width: breakpint("lg")) {
+      padding-left: 2px;
+      padding-right: 2px;
+    }
 
     a:hover img {
       opacity: .7;
@@ -22,8 +27,13 @@
 
   &__textbox {
     @include col("lg", 6);
-    padding-left: 2px;
-    padding-right: 2px;
+    padding-left: .5rem;
+    padding-right: .5rem;
+
+    @media (min-width: breakpint("lg")) {
+      padding-left: 2px;
+      padding-right: 2px;
+    }
   }
 
   &__textbox-inner {

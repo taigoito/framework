@@ -1,5 +1,7 @@
     <section id="news" class="news">
-      <h2 class="news__heading">news<span class="heading-dec"></span></h2>
+      <h2 class="news__heading">
+        <div class="news__heading-inner">news<span class="heading-dec"></span></div>
+      </h2>
       <div class="info">
         <ul class="info__list">
           <?php

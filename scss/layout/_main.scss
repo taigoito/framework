@@ -10,6 +10,10 @@
   @include container();
   margin-top: 0;
   margin-bottom: 3rem;
+}
+
+%section__heading-inner {
+  position: relative;
   padding-bottom: .25rem;
   border-bottom: .25rem solid theme-color("primary");
   font-weight: 700;

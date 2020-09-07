@@ -8,6 +8,10 @@
 
   &__heading {
     @extend %section__heading;
+  }
+
+  &__heading-inner {
+    @extend %section__heading-inner;
     border-bottom-color: theme-color("primary-light");
     border-bottom-style: dotted;
     color: theme-color("primary-light");

@@ -1,6 +1,8 @@
     <section id="contact" class="contact">
-      <h2 class="contact__heading">contact<span class="heading-dec"></span></h2>
-        <div style="text-align: center;">
-          <?php echo do_shortcode('[contact-form-7]'); ?>
-        </div>
+      <h2 class="contact__heading">
+        <div class="contact__heading-inner">contact<span class="heading-dec"></span></div>
+      </h2>
+      <div class="contact__form">
+        <?php echo do_shortcode('[contact-form-7 id="7" title="Contact form"]'); ?>
+      </div>
     </section><!-- .contact -->

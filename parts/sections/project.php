@@ -1,5 +1,7 @@
     <section id="project" class="project">
-      <h2 class="project__heading">project<span class="heading-dec"></span></h2>
+      <h2 class="project__heading">
+        <div class="project__heading-inner">project<span class="heading-dec"></span></div>
+      </h2>
       <div class="lists">
         <?php
         $posts = get_posts([

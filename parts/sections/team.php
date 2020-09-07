@@ -1,5 +1,7 @@
     <section id="team" class="team">
-      <h2 class="team__heading">team<span class="heading-dec"></span></h2>
+      <h2 class="team__heading">
+        <div class="team__heading-inner">team<span class="heading-dec"></span></div>
+      </h2>
       <div class="members">
         <?php
         $posts = get_posts([

@@ -3,8 +3,11 @@
 
 .info {
   @include container();
-  padding: 3rem;
-  border: 6px dashed theme-color("primary-light");
+
+  &__list {
+    padding: 3rem;
+    border: 6px dashed theme-color("primary-light");
+  }
 
   &__item {
     margin-bottom: 1rem;
