@@ -10,6 +10,6 @@
 
   &__cover {
     @include cover-image(url("./images/main_02.jpg"));
-    opacity: .7;
+    opacity: .85;
   }
 }

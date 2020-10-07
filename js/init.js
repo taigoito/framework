@@ -26,27 +26,5 @@ const slidebar = new Slidebar({
 });
 slidebar.init();
 
-if (document.body.id === 'index') {
-  // Slider init
-  const slider = new Slider({
-    hasDraggingHandler: true,
-    hasWheelHandler: true,
-    hasFade: true,
-    hasCaption: true,
-    autoPlay: 3000
-  });
-  slider.init();
-}
-
-if (document.body.id === 'works') {
-  // Works
-  const elem = document.querySelector('.article-work__gallery');
-  const content = document.querySelector('.article-work__content');
-  const images = content.querySelectorAll('.wp-block-image');
-  images.forEach((image) => {
-    elem.appendChild(image);
-  });
-}
-
 // Icons init
 renderEvilIcons();

@@ -1,7 +1,7 @@
     <section id="feature" class="feature">
       <h2 class="feature__heading screen-reader-text">feature</h2>
       <div class="one-col">
-        <div class="one-col__container--order_switched">
+        <div class="one-col__container">
           <div class="one-col__textbox">
             <h3 class="one-col__heading">森のようちえん</h3>
             <div class="one-col__intro">

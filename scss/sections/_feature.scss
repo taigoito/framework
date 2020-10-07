@@ -9,7 +9,7 @@
   overflow: hidden;
 
   &__cover {
-    @include cover-image(url("./images/main_03_r.jpg"));
-    opacity: .7;
+    @include cover-image(url("./images/main_05.jpg"));
+    //opacity: .85;
   }
 }

@@ -1,21 +1,20 @@
     <section id="shopping" class="shopping">
-      <h2 class="shopping__heading">自然食品の販売</h2>
-      <p class="shopping__text">ギリシャ産の天日塩やスコットランドの大麦などを取り扱っています。</p>
-      <div id="slider" class="slider--size_sm">
-        <div class="slider__inner">
-          <?php
-          $posts = get_posts([
-            'posts_per_page' => 10,
-            'post_type' => 'item'
-          ]);
-          foreach ($posts as $post) {
-            setup_postdata($post);
-            get_template_part("parts/components/slider");
-          }
-          ?>
+      <h2 class="shopping__heading screen-reader-text">shopping</h2>
+      <div class="one-col">
+        <div class="one-col__container--order_switched">
+          <div class="one-col__textbox">
+            <h3 class="one-col__heading">自然、最善、いただき繕</h3>
+            <div class="one-col__intro">
+              <p>風、雨、波、虫 ... 今日はどんな音と出会えるだろう</p>
+              <a class="one-col__more" href="<?php the_permalink(11); ?>">&gt; 自然食品の販売</a>
+            </div>
+            <h3 class="one-col__heading">There is sound hearing</h3>
+            <div class="one-col__intro">
+              <p>Wind, rain, wave, insects ... what kind of sounds could we come across today ?</p>
+              <a class="one-col__more" href="<?php the_permalink(11); ?>">&gt; Organic food shops</a>
+            </div>
+          </div>
         </div>
-        <a class="slider__prev" href="#"><span data-icon="ei-chevron-left" data-size="l"></span></a>
-        <a class="slider__next" href="#"><span data-icon="ei-chevron-right" data-size="l"></span></a>
-      </div><!-- .slider -->
-      <div class="slider__caption"></div>
+      </div><!-- .one-col -->
+      <div class="shopping__cover"></div>
     </section><!-- .shopping -->
