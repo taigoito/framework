@@ -291,14 +291,14 @@ button,
           filter: blur(2px);
 }
 
-.site-header__cover--kindergarten {
+.site-header__cover--shop {
   position: absolute;
   top: 0;
   left: 0;
   z-index: -1;
   width: 100%;
   height: 100%;
-  background-image: url("./images/main_03_r.jpg");
+  background-image: url("./images/main_03.jpg");
   background-repeat: no-repeat;
   background-position: center center;
   background-size: cover;
@@ -315,6 +315,22 @@ button,
   width: 100%;
   height: 100%;
   background-image: url("./images/main_04.jpg");
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: cover;
+  background-attachment: scroll;
+  -webkit-filter: blur(2px);
+          filter: blur(2px);
+}
+
+.site-header__cover--kindergarten {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: -1;
+  width: 100%;
+  height: 100%;
+  background-image: url("./images/main_05.jpg");
   background-repeat: no-repeat;
   background-position: center center;
   background-size: cover;
@@ -363,20 +379,20 @@ button,
 
 /* Layout Main
 ------------------------------*/
-.about, .service, .feature, .shopping, .news, .recruit, .photos, .contact {
+.about, .service, .feature, .shop, .news, .recruit, .movies, .contact {
   padding-top: 6rem;
   padding-bottom: 6rem;
   text-align: center;
 }
 
-.news__heading, .photos__heading, .contact__heading {
+.news__heading, .movies__heading, .contact__heading {
   margin-top: 0;
   margin-bottom: 1.5rem;
   font-size: 1.5rem;
   letter-spacing: 0.04em;
 }
 
-.news__text {
+.news__text, .movies__text {
   margin-bottom: 6rem;
 }
 
@@ -901,16 +917,16 @@ button,
           filter: none;
 }
 
-/* Section Shopping
+/* Section shop
 ------------------------------*/
-.shopping {
+.shop {
   position: relative;
   height: 100%;
   min-height: 576px;
   overflow: hidden;
 }
 
-.shopping__cover {
+.shop__cover {
   position: absolute;
   top: 0;
   left: 0;
@@ -958,11 +974,18 @@ button,
           filter: none;
 }
 
-/* Section Photos
+/* Section Movies
 ------------------------------*/
-.photos {
-  background-color: #262626;
-  color: #ffffff;
+.movies {
+  background-color: #ffffff;
+}
+
+.movies iframe {
+  width: 80vmin;
+  max-width: 384px;
+  height: 45vmin;
+  max-height: 216px;
+  margin: auto;
 }
 
 /* Section Access
@@ -986,7 +1009,7 @@ button,
   background-color: #ffffff;
 }
 
-.contact__form {
+.contact form {
   position: relative;
   width: 100%;
   max-width: 600px;
@@ -997,15 +1020,15 @@ button,
   text-align: left;
 }
 
-.contact__form p {
+.contact form p {
   line-height: inherit;
 }
 
-.contact__form label {
+.contact form label {
   display: block;
 }
 
-.contact__form input[type="text"], .contact__form input[type="tel"], .contact__form input[type="url"], .contact__form input[type="email"], .contact__form input[type="password"], .contact__form input[type="file"], .contact__form select, .contact__form optgroup, .contact__form textarea {
+.contact form input[type="text"], .contact form input[type="tel"], .contact form input[type="url"], .contact form input[type="email"], .contact form input[type="password"], .contact form input[type="file"], .contact form select, .contact form optgroup, .contact form textarea {
   display: block;
   width: 100%;
   margin-top: .5rem;
@@ -1014,21 +1037,21 @@ button,
   padding-right: 8px;
 }
 
-.contact__form input[type="text"], .contact__form input[type="tel"], .contact__form input[type="url"], .contact__form input[type="email"], .contact__form input[type="password"], .contact__form input[type="file"], .contact__form select, .contact__form optgroup {
+.contact form input[type="text"], .contact form input[type="tel"], .contact form input[type="url"], .contact form input[type="email"], .contact form input[type="password"], .contact form input[type="file"], .contact form select, .contact form optgroup {
   height: 2.8rem;
 }
 
-.contact__form input[type="file"] {
+.contact form input[type="file"] {
   outline: 0;
 }
 
-.contact__form textarea {
+.contact form textarea {
   padding-top: 8px;
   padding-top: 8px;
   resize: vertical;
 }
 
-.contact__form [type="button"], .contact__form [type="reset"], .contact__form [type="submit"] {
+.contact form [type="button"], .contact form [type="reset"], .contact form [type="submit"] {
   display: block;
   margin: auto;
   padding: 0.75rem 6rem;
@@ -1046,7 +1069,7 @@ button,
   margin: auto;
 }
 
-.contact__form [type="button"]:hover, .contact__form [type="reset"]:hover, .contact__form [type="submit"]:hover {
+.contact form [type="button"]:hover, .contact form [type="reset"]:hover, .contact form [type="submit"]:hover {
   background-color: #e24536;
   color: #ffffff;
   text-decoration: none;
@@ -2199,6 +2222,16 @@ button,
   height: 1px;
   clip: rect(1px, 1px, 1px, 1px);
   overflow: hidden;
+}
+
+/* Utility Links
+------------------------------*/
+.link-youtube {
+  color: #e76458;
+}
+
+.link-youtube:hover {
+  opacity: .7;
 }
 
 /* Layout Custom logo

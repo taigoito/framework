@@ -1,0 +1,10 @@
+/* Utility Links
+------------------------------*/
+
+.link-youtube {
+  color: theme-color("primary");
+
+  &:hover {
+    opacity: .7;
+  }
+}

@@ -1,0 +1,23 @@
+/* Section Movies
+------------------------------*/
+
+.movies {
+  @extend %section;
+  background-color: #ffffff;;
+
+  &__heading {
+    @extend %section__heading;
+  }
+
+  &__text {
+    @extend %section__text;
+  }
+
+  iframe {
+    width: 80vmin;
+    max-width: 384px;
+    height: 45vmin;
+    max-height: 216px;
+    margin: auto;
+  }
+}

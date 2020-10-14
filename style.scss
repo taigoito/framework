@@ -30,10 +30,10 @@ Description: This is a theme for someone artists or craftsmen. Please customize 
  @import "scss/sections/about";
  @import "scss/sections/service";
  @import "scss/sections/feature";
- @import "scss/sections/shopping";
+ @import "scss/sections/shop";
  @import "scss/sections/news";
  @import "scss/sections/recruit";
- @import "scss/sections/photos";
+ @import "scss/sections/movies";
  @import "scss/sections/access";
  @import "scss/sections/contact";
  @import "scss/components/breadcrumb";
@@ -50,5 +50,6 @@ Description: This is a theme for someone artists or craftsmen. Please customize 
  @import "scss/components/slidebar";
  @import "scss/components/slider";
  @import "scss/utilities/accessibilities";
+ @import "scss/utilities/links";
  @import "scss/utilities/custom-logo";
  @import "scss/utilities/widgets";

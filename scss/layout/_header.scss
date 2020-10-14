@@ -39,12 +39,16 @@
       @include cover-image(url("./images/main_02.jpg"), blur(2px));
     }
 
-    &--kindergarten {
-      @include cover-image(url("./images/main_03_r.jpg"), blur(2px));
+    &--shop {
+      @include cover-image(url("./images/main_03.jpg"), blur(2px));
     }
 
     &--recruit {
       @include cover-image(url("./images/main_04.jpg"), blur(2px));
+    }
+
+    &--kindergarten {
+      @include cover-image(url("./images/main_05.jpg"), blur(2px));
     }
   }
 }
