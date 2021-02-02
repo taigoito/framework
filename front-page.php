@@ -1,10 +1,10 @@
 <?php get_header(); ?>
-  <main id="main">
+  <main class="main">
     <?php
-    $array = ['works', 'about', 'feature', 'exp', 'shop', 'profile'];
+    $array = ['works', 'about', 'news', 'photos', 'access', 'contact'];
     foreach ($array as $value) {
-      get_template_part('template-parts/sections/' . $value);
+      get_template_part('parts/sections/' . $value);
     }
     ?>
-  </main><!-- #index-main -->
+  </main><!-- .main -->
 <?php get_footer(); ?>

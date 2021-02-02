@@ -1,0 +1,6 @@
+/* Layout Cover Image
+------------------------------*/
+
+.cover-image {
+  @include cover-image(url("./images/background.jpg"));
+}
