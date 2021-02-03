@@ -12,6 +12,5 @@
             <div class="one-col__intro">
               <?php the_content(); ?>
             </div>
-            <a class="one-col__more" href="<?php the_permalink(); ?>">詳細</a>
           </div>
         </div>

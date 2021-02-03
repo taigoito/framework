@@ -1,0 +1,15 @@
+/* Layout List Feature Tag
+------------------------------*/
+
+.list-feature-tag {
+  padding: 0;
+
+  &__item {
+    display: inline-block;
+    margin: 0 1rem;
+  }
+
+  a {
+    display: block;
+  }
+}

@@ -9,14 +9,14 @@
               <?php the_title(); ?>
             <?php } ?>
           </h2>
-          <ul class="article__terms">
-            <?php
+          <!--<ul class="article__terms">
+            <?php /*
             $terms = get_the_category($post->ID);
             foreach ($terms as $term) {
               echo '<li class="article__term"><a href="' . get_term_link($term->slug, 'category') . '">' . $term->name . '</a></li> ';
             }
-            ?>
-          </ul>
+            */ ?>
+          </ul>-->
           <?php } ?>
         </header>
         <div class="article__content">
@@ -30,7 +30,7 @@
           </div>
           <?php } ?>
           <?php if (is_home() || is_archive()) { ?>  
-            <p class="article__intro"><?php echo get_the_excerpt(); ?> <a href="<?php the_permalink(); ?>">[read more]</a></p>
+            <p class="article__intro"><?php echo mb_substr(get_the_excerpt(),0,64) . '&#046;&#046;&#046;'; ?> <a href="<?php the_permalink(); ?>">[もっと読む]</a></p>
           <?php } else { ?>
             <?php the_content(); ?>
           <?php } ?>

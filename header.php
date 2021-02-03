@@ -22,14 +22,9 @@
     if (is_front_page()) {
       get_template_part('parts/sections/hero');
     } else {
-      get_template_part('parts/layout/header-nav');
+      get_template_part('parts/layout/site-header');
     }
     ?>
   </header><!-- .<?php echo is_front_page() ? 'hero' : 'site-header'; ?> -->
-  <?php
-  if (is_front_page()) {
-    get_template_part('parts/layout/header-nav');
-  } else {
-    insert_breadcrumb();
-  }
-  ?>
+  <?php get_template_part('parts/layout/header-nav'); ?>
+  <?php if (!is_front_page()) insert_breadcrumb(); ?>

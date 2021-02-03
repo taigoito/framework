@@ -1,0 +1,89 @@
+/* Section Feature
+------------------------------*/
+
+.feature {
+  @extend %section;
+
+  &__heading {
+    @extend %section__heading;
+  }
+
+  &__container {
+    @include container();
+  }
+
+  &__banner {
+    margin-bottom: 1rem;
+    text-align: center;
+
+    a {
+      text-decoration: none;
+
+      &:not(:hover) .feature__wrap {
+        opacity: .85;
+      }
+    }
+
+    @media (min-width: breakpoint("lg")) {
+      width: 85%;
+      margin-left: auto;
+      margin-right: auto;
+    }
+  }
+  
+  &__wrap {
+    padding: .5rem;
+  }
+
+  &__inner {
+    display: flex;
+    padding: .5rem 0;
+    border-width: 1px;
+    border-style: solid;
+    align-items: center;
+  }
+
+  &__intro {
+    @include col("sm", 0);
+  }
+
+  &__image {
+    @include col("sm", "auto");
+
+    img {
+      width: 9rem;
+
+      @media (min-width: breakpoint("lg")) {
+        width: 12rem;
+      }
+    }
+  }
+
+  &__title {
+    margin-bottom: .5rem;
+    font-size: 1.5rem;
+
+    @media (min-width: breakpoint("lg")) {
+      margin-bottom: 1rem;
+    }
+  }
+
+  &__textbox {
+    display: none;
+    margin-bottom: .5rem;
+    font-size: 1rem;
+    text-align: center;
+
+    @media (min-width: breakpoint("lg")) {
+      display: block;
+      margin-bottom: 1rem;
+    }
+  }
+
+  &__detail {
+    display: inline-block;
+    margin: 3rem auto;
+    text-align: center;
+    text-decoration: underline;
+  }
+}

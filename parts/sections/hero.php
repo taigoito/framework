@@ -1,16 +1,14 @@
-    <div class="hero__inner" <?php if (get_header_image()) echo 'style="color: #' . get_header_textcolor() . '"'; ?>>
       <div class="hero__content">
-        <h1 class="hero__title">
-          <?php
-          if (has_custom_logo()) {
-            $custom_logo_id = get_theme_mod('custom_logo');
-            $image = wp_get_attachment_image_src($custom_logo_id, 'full');
-            echo '<img src="' . $image[0] . '">';
-          } else {
-            bloginfo('name');
-          }
-          ?>
-        </h1>
-        <div class="hero__description"><?php bloginfo('description'); ?></div>
+        <?php
+        $posts = get_posts([
+          'posts_per_page' => 1,
+          'post_type' => 'post'
+        ]);
+        foreach ($posts as $post) {
+          setup_postdata($post);
+          the_post_thumbnail('large', ['class' => 'hero__image']);
+        ?>
+        <small class="hero__title"><?php the_title(); ?></small>
+        <?php } ?>
       </div>
-    </div>
+      <small class="hero__copyright"><?php copyright(); ?></small>

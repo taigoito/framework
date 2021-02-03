@@ -257,14 +257,14 @@ function insert_feature_cat()
   global $feature_cat_slug;
   global $feature_tag_slug;
   echo '<ul class="list-' . $feature_cat_slug . '">';
-  echo '<li>' .
+  echo '<li class="list-' . $feature_cat_slug . '__item">' .
     '<a href="' . get_post_type_archive_link($feature_slug) . '">' .
     get_post_type_object($feature_slug)->label . '一覧' .
     '</a>' .
     '</li>';
   $terms = get_terms($feature_cat_slug, ['orderby' => 'name']);
   foreach ($terms as $term) {
-    echo '<li>' .
+    echo '<li class="list-' . $feature_cat_slug . '__item">' .
       '<a href="' . get_term_link($term->term_id, $feature_cat_slug) . '">' .
       $term->name .
       '</a>' .
@@ -272,7 +272,7 @@ function insert_feature_cat()
   }
   $terms = get_terms($feature_tag_slug, ['orderby' => 'ID']);
   foreach (array_reverse($terms) as $term) {
-    echo '<li>' .
+    echo '<li class="list-' . $feature_cat_slug . '__item">' .
       '<a href="' . get_term_link($term->term_id, $feature_tag_slug) . '">' .
       $term->name .
       '</a>' .
@@ -647,7 +647,9 @@ function get_my_description()
   // WPオブジェクト取得
   $wp_obj = get_queried_object();
 
-  if (is_single()) {
+  if (is_home()) {
+    return 'おさのなおこが綴る越前海岸からの版画の便り';
+  } else if (is_single()) {
     // 個別投稿ページ
     $post_type = $wp_obj->post_type;
     if ($post_type === 'post') return 'おさのなおこが綴る越前海岸からの版画の便り';

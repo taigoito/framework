@@ -1,4 +1,4 @@
-        <div class="one-col__container">
+        <div class="one-col__container--order_switched">
           <div class="one-col__image">
             <?php
             if (has_post_thumbnail()) {

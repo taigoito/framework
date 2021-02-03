@@ -1,7 +1,7 @@
 // Variables
 
 // Root
-$root-font-size: 16px;
+$root-font-size: 18px;
 
 // Grid system
 $grid-columns: 12;
@@ -46,15 +46,15 @@ $font-family-serif:      "UD Digi Kyokasho N-R", "UDDigiKyokasho R", sans-serif;
 $font-weight-sans-serif: 500;
 $font-weight-serif:      400;
 
-$font-family-base:    $font-family-sans-serif;
-$font-weight-base:    $font-weight-sans-serif;
+$font-family-base:    $font-family-serif;
+$font-weight-base:    $font-weight-serif;
 $font-size-base:      1rem;
 $text-align-base:     justify;
 $line-height-base:    28.8 / ($root-font-size / ($root-font-size * 0 + 1)); // Remove the unit
 $letter-spacing-base: 0;
 
-$heading-font-family: $font-family-sans-serif;
-$heading-font-weight: $font-weight-sans-serif;
+$heading-font-family: $font-family-serif;
+$heading-font-weight: $font-weight-serif;
 
 $small-font-size:      percentage(7 / 8);
 $small-line-height:    $line-height-base * 9 / 8;

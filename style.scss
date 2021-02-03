@@ -22,6 +22,7 @@ Description: This is a theme for Hanga-Yubinsya.
  @import "scss/foundation/normalize";
  @import "scss/layout/header";
  @import "scss/layout/header-nav";
+ @import "scss/layout/list-feature-tag";
  @import "scss/layout/main";
  @import "scss/layout/article";
  @import "scss/layout/aside";
@@ -31,8 +32,10 @@ Description: This is a theme for Hanga-Yubinsya.
  @import "scss/sections/hero";
  @import "scss/sections/works";
  @import "scss/sections/about";
+ @import "scss/sections/feature";
+ @import "scss/sections/exp";
  @import "scss/sections/news";
- @import "scss/sections/photos";
+ @import "scss/sections/profile";
  @import "scss/sections/access";
  @import "scss/sections/contact";
  @import "scss/components/breadcrumb";

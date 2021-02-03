@@ -11,9 +11,20 @@
 
   &__image {
     @include col("lg", 4);
+    padding-top: .25rem;
+    padding-bottom: .25rem;
+
+    img {
+      width: auto;
+      height: 13.5rem;
+      padding: 4px;
+      background-color: rgba(255,255,255,.3);
+      box-shadow: 9px 9px 9px -6px rgba(0, 0, 0, .3);
+    }
 
     a:hover img {
-      opacity: .7;
+      transform: translate(1px, 1px);
+      box-shadow: 9px 9px 9px -3px rgba(0, 0, 0, .3);
     }
   }
 
@@ -25,7 +36,10 @@
     display: flex;
     align-items: center;
     height: 100%;
-    background-color: #ffffff;
+
+    @media (min-width: breakpoint("lg")) {
+      background-color: rgba(#ffffff, .3);
+    }
   }
 
   &__content {

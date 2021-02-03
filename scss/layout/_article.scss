@@ -50,6 +50,10 @@
     margin-bottom: 2rem;
     text-align: center;
 
+    img {
+      max-width: 27rem;
+    }
+
     a:hover img {
       opacity: .7;
     }

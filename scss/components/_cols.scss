@@ -10,7 +10,7 @@
 
   %__container {
     @include row();
-    margin-bottom: 6rem; // Remove it, if not needed
+    //margin-bottom: 6rem; // Remove it, if not needed
     justify-content: space-around;
     align-items: center;
   }
@@ -63,7 +63,8 @@
     @include button("lg");
   }
 
-  &__container--order_switched {
+  &__container--order_switched,
+  &__container:nth-child(even) {
     @extend %__container;
 
     @media (min-width: breakpoint("lg")) {

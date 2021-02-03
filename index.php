@@ -1,7 +1,7 @@
 <?php get_header(); ?>
   <main class="main">
     <header class="main__header">
-      <h1 class="main__title<?php if (is_single() || is_page()) echo ' screen-reader-text'?>"><?php echo get_my_title(); ?></h1>
+      <h1 class="main__title screen-reader-text"><?php echo get_my_title(); ?></h1>
     </header>
     <div class="main__container">
       <?php if (is_singular('works') || is_post_type_archive('works') || is_tax('product') || is_tax('motif')) { ?>
