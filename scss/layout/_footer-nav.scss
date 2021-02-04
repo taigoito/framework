@@ -29,6 +29,13 @@
 .footer-nav-brand {
   padding-left: 1rem;
   @extend %footer-nav-item;
+
+  img {
+    width: auto;
+    height: 4rem;
+    margin-top: -1rem;
+    filter: brightness(25%) invert(1);
+  }
 }
 
 .footer-nav-menu {

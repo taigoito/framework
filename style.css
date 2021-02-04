@@ -230,6 +230,7 @@ button,
   position: fixed;
   top: 0;
   left: 0;
+  z-index: 1000;
   margin: 1.5rem;
 }
 
@@ -251,6 +252,7 @@ button,
   position: fixed;
   top: 0;
   right: 0;
+  z-index: 1000;
   height: 3rem;
   margin: .75rem;
   padding: 0;
@@ -698,6 +700,14 @@ button,
 
 .footer-nav-brand {
   padding-left: 1rem;
+}
+
+.footer-nav-brand img {
+  width: auto;
+  height: 4rem;
+  margin-top: -1rem;
+  -webkit-filter: brightness(25%) invert(1);
+          filter: brightness(25%) invert(1);
 }
 
 .footer-nav-menu {
@@ -2012,7 +2022,9 @@ button,
 
 .slidemenu li img {
   width: auto;
-  height: 2rem;
+  height: 4rem;
+  -webkit-filter: brightness(25%) invert(1);
+          filter: brightness(25%) invert(1);
 }
 
 .slidemenu:not(.show) {
